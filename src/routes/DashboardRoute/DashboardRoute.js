@@ -40,24 +40,24 @@ class DashboardRoute extends Component {
 
 
   calcScores = (array) => {
-    let correct_count = array.forEach(i => { return i.correct_count }).reduce((a, b) => { return a + b }) 
-    // if (correct_count > 0) {
-    //   correct_count.reduce((a, b) => { return a + b }) 
+    // let correct_count = array.forEach(i => { return i.correct_count })
+    // .reduce((a, b) => { return a + b }) 
+      //**REFACTOR   fix edge case , make this an async function ?*/
+    let correct_count = array.map(i => { return i.correct_count })
       
-    // }
+     correct_count.some(i => i>0) > 0 ? correct_count.reduce((a, b) => { return a + b }) : correct_count = 0
+      
+    
         
-    // let incorrect_count = array.map(i => { return i.incorrect_count })
-    // if (incorrect_count > 0) {
-    //   incorrect_count.reduce((a, b) => { return a + b }) 
-      
-    // }
-        
-    //   // .reduce((a, b) => { return a + b }) 
-    // let total_score = correct_count - incorrect_count
-
-    console.log(correct_count)
-    // this.setState({ correct_count, incorrect_count }, () => {
-      
+    let incorrect_count = array.map(i => { return i.incorrect_count })
+    incorrect_count.some(i => i>0) > 0 ? incorrect_count.reduce((a, b) => { return a + b }) : incorrect_count = 0
+    
+    let total_score = correct_count - incorrect_count
+console.log('**********')
+    console.log(total_score)
+    return total_score
+    // this.setState({ correct_count, incorrect_count}, () => {
+    //   console.log(this.state)
 
     // })
 }
@@ -69,22 +69,24 @@ class DashboardRoute extends Component {
     
   // }
 
-//   renderWordList=(words)=>{
+  renderWordList=(words)=>{
     
-//     let word= words.map((item,index)=>{
-//       return <li key={index}><div className="word-card">
-//             <h4>{item.word.original}</h4>        
-//             <p>correct answer count: {item.word.correct_count}</p>
-//             <p>incorrect answer count: {item.word.incorrect_count}</p>        
-//         </div></li>
-//    })
-//    return word
-//  }
+    let word= words.map((item,index)=>{
+      return <li key={index}><div className="word-card">
+            <h4>{item.original}</h4>        
+            <p>correct answer count: {item.correct_count}</p>
+            <p>incorrect answer count: {item.incorrect_count}</p>        
+        </div></li>
+   })
+   return word
+ }
 
   render() {
 
-    this.calcScores(this.state.words)
-    // let wordList= this.renderWordList(this.state.words);
+    this.calcScores(this.state.words)//** clean this up dry and kiss */
+
+
+    let wordList= this.renderWordList(this.state.words);
     // let totalScore = this.renderTotalScore(this.getTotalScore())
 
     return (
@@ -102,7 +104,7 @@ class DashboardRoute extends Component {
               Words to practice
             </h3>
             <ul>
-                {/* {wordList} */}
+                {wordList}
             </ul>
             <button>
               <Link to={`/learn`}>Start practicing</Link>
