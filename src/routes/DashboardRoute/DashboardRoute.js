@@ -1,14 +1,19 @@
 import React, { Component } from 'react'
 import LangService from '../../services/lang-service'
 import { Link } from 'react-router-dom';
-// import Word from '../../components/Word/Word'
-// import TotalScore from '../../components/TotalScore/TotalScore'
+import Word from '../../components/Word/Word'
+import TotalScore from '../../components/TotalScore/TotalScore'
+import LangContext from '../../contexts/LangContext';
+
 
 class DashboardRoute extends Component {
-  state={
-    words:[],
+  state = {
+    language:'',
+    words: [],
+    nextWord:'',
     correct_count: 0,
     incorrect_count: 0,
+    total_score:0,
 
   }
   
@@ -24,6 +29,11 @@ class DashboardRoute extends Component {
           [key]:value,
         })
       }
+      // this.setState({
+      //   language:res.language.name,
+      //   total_score: res.language.total_score,
+        
+      // })
       console.log(this.state)
 
      
@@ -89,8 +99,18 @@ console.log('**********')
     let wordList= this.renderWordList(this.state.words);
     // let totalScore = this.renderTotalScore(this.getTotalScore())
 
+    const value = {       // haven't fully implemented context yet... just setting up template
+    language:this.state.name,    
+    words:this.state.words,               
+    correct_count:this.state.correct_count,
+      incorrect_count: this.state.incorrect_count,
+    total_score:this.state.total_score
+  }
+
+
+
     return (
-      // <LangContext.Provider value={value} role="main">
+      <LangContext.Provider value={value} role="main">
       <main> 
         <div> 
           <section>
@@ -98,8 +118,8 @@ console.log('**********')
               {this.state.name}
             </h2>
     
-            {/* <TotalScore score={this.state.total_score} />          */}
-            Total correct answers: {this.state.total_score} 
+            <TotalScore score={this.state.total_score} />         
+          
             <h3>
               Words to practice
             </h3>
@@ -112,7 +132,7 @@ console.log('**********')
           </section>
         </div>
       </main>
-    // </LangContext.Provider>
+     </LangContext.Provider>
     );
   }
 }
