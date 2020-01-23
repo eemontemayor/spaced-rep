@@ -8,8 +8,10 @@ class LearningRoute extends Component {
     guess_input: '',
     prevWord:'',
     nextWord: '',
+    answer:null,
     wordCorrectCount: null,
     wordIncorrectCount: null,
+    isCorrect:false
     
   }
   static contextType = LangContext
@@ -41,6 +43,9 @@ class LearningRoute extends Component {
     //keeps track of word user just finished submitting
     this.setState({
       prevWord: this.state.nextWord
+    }, () => {
+        console.log(this.state)
+
     });
 
     LangService.postGuess(guess)
@@ -59,7 +64,8 @@ class LearningRoute extends Component {
     console.log(this.state)
     this.setState({
       ...this.state,
-      translation: null
+      answer: null,
+      isCorrect:false
     })
   }
   render() {
@@ -73,12 +79,11 @@ class LearningRoute extends Component {
           displayForm = <><Button type='click' onClick={this.handleNext.bind(this)}>Try another word!</Button></>
         } else {
           message = <><h2>Good try, but not quite right :(</h2>
-          <p>{`The correct translation for ${this.state.prevWord} was ${this.state.translation} and you chose ${this.state.guess_input}!`}</p></>;
+          <p>{`The correct translation for ${this.state.prevWord} was ${this.state.answer} and you chose ${this.state.guess_input}!`}</p></>;
           
           //if the user entered the wrong word
           displayForm = <><Button type='click' onClick={this.handleNext.bind(this)}>Try another word!</Button></>
         } 
-    
     
         //for if there is no answer
         if (!this.state.answer) {
@@ -90,6 +95,9 @@ class LearningRoute extends Component {
               <Button type='submit'>Submit your answer</Button>
             </form></>
         }
+    
+    
+    
       return (
         <div role="main">
         <main className="score-form">

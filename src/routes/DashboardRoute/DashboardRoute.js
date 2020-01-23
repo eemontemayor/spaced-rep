@@ -27,7 +27,7 @@ class DashboardRoute extends Component {
         languageId:res.language.id,
         language:res.language.name,
         total_score: res.language.total_score,
-        nextWordId: res.language.head,
+        // nextWordId: res.language.head,
         words:[...res.words]
       })
         console.log(this.state);

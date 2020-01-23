@@ -8,9 +8,9 @@ const LangContext = React.createContext({
   language:'',
   nextWord: '',
   prevWord:'',
-  wordCorrectCount: [],
-  wordIncorrectCount: [],
-  totalScore: [],
+  // wordCorrectCount: [],
+  // wordIncorrectCount: [],
+  // totalScore: [],
   words: [],
  
     correct_count: 0,
