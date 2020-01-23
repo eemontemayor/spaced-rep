@@ -8,104 +8,65 @@ import LangContext from '../../contexts/LangContext';
 
 class DashboardRoute extends Component {
   state = {
+    languageId:null,
     language:'',
     words: [],
-    nextWord:'',
-    correct_count: 0,
-    incorrect_count: 0,
-    total_score:0,
+    nextWordId:null,
+    total_score:null,
 
   }
   
 
 
-  componentDidMount(){
+  componentDidMount() {
+
     LangService.getUserLanguage()
     .then(res => {
-      console.log(res);
-      
-      for(const [key,value] of Object.entries(res.language)){
-        this.setState({
-          [key]:value,
-        })
-      }
-      // this.setState({
-      //   language:res.language.name,
-      //   total_score: res.language.total_score,
-        
-      // })
-      console.log(this.state)
-
-     
-        this.setState({
-          words: res.words
-        })
-      
-        console.log(this.state);
-     
   
+      this.setState({
+        languageId:res.language.id,
+        language:res.language.name,
+        total_score: res.language.total_score,
+        nextWordId: res.language.head,
+        words:[...res.words]
+      })
+        console.log(this.state);
+
     })
   }
 
 
 
-  calcScores = (array) => {
-    // let correct_count = array.forEach(i => { return i.correct_count })
-    // .reduce((a, b) => { return a + b }) 
-      //**REFACTOR   fix edge case , make this an async function ?*/
-    let correct_count = array.map(i => { return i.correct_count })
-      
-     correct_count.some(i => i>0) > 0 ? correct_count.reduce((a, b) => { return a + b }) : correct_count = 0
-      
+
+
+  generateWordList=(words)=>{
     
-        
-    let incorrect_count = array.map(i => { return i.incorrect_count })
-    incorrect_count.some(i => i>0) > 0 ? incorrect_count.reduce((a, b) => { return a + b }) : incorrect_count = 0
-    
-    let total_score = correct_count - incorrect_count
-console.log('**********')
-    console.log(total_score)
-    return total_score
-    // this.setState({ correct_count, incorrect_count}, () => {
-    //   console.log(this.state)
-
-    // })
-}
-
-
-
-  // renderTotalScore = () => {
-
-    
-  // }
-
-  renderWordList=(words)=>{
-    
-    let word= words.map((item,index)=>{
-      return <li key={index}><div className="word-card">
-            <h4>{item.original}</h4>        
-            <p>correct answer count: {item.correct_count}</p>
-            <p>incorrect answer count: {item.incorrect_count}</p>        
-        </div></li>
-   })
-   return word
- }
+      let wordList= words.map((item,index)=>{
+        return <li key={index}>
+          <Word
+            original={item.original}
+            correct_count={item.correct_count}
+            incorrect_count={item.incorrect_count}
+          />
+        </li>
+      })
+    return wordList
+  }
 
   render() {
 
-    this.calcScores(this.state.words)//** clean this up dry and kiss */
+   
 
 
-    let wordList= this.renderWordList(this.state.words);
-    // let totalScore = this.renderTotalScore(this.getTotalScore())
+    let wordList= this.generateWordList(this.state.words);
+   
 
-    const value = {       // haven't fully implemented context yet... just setting up template
-    language:this.state.name,    
-    words:this.state.words,               
-    correct_count:this.state.correct_count,
-      incorrect_count: this.state.incorrect_count,
-    total_score:this.state.total_score
-  }
+    const value = {
+      languageId:this.state.languageId,
+      language:this.state.language,    
+      words:this.state.words,               
+      total_score:this.state.total_score
+    }
 
 
 
@@ -115,7 +76,7 @@ console.log('**********')
         <div> 
           <section>
             <h2>
-              {this.state.name}
+              {this.state.language}
             </h2>
     
             <TotalScore score={this.state.total_score} />         
