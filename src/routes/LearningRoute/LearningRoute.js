@@ -9,10 +9,10 @@ class LearningRoute extends Component {
     prevWord:'',
     nextWord: '',
     answer:null,
-    wordCorrectCount: null,
-    wordIncorrectCount: null,
-    isCorrect:false
-    
+    // wordCorrectCount: null,
+    // wordIncorrectCount: null,
+    // isCorrect:false,
+    // total_score:8,
   }
   static contextType = LangContext
 
@@ -43,9 +43,6 @@ class LearningRoute extends Component {
     //keeps track of word user just finished submitting
     this.setState({
       prevWord: this.state.nextWord
-    }, () => {
-        console.log(this.state)
-
     });
 
     LangService.postGuess(guess)
@@ -60,12 +57,9 @@ class LearningRoute extends Component {
 
   handleNext=(e)=>{
     e.preventDefault()
-    console.log('here')
-    console.log(this.state)
     this.setState({
       ...this.state,
       answer: null,
-      isCorrect:false
     })
   }
   render() {
@@ -96,7 +90,7 @@ class LearningRoute extends Component {
             </form></>
         }
     
-    
+   
     
       return (
         <div role="main">
@@ -106,7 +100,7 @@ class LearningRoute extends Component {
           </div>
           {displayForm}      
           <div className="DisplayScore">
-            <p>{`Your total score is: ${this.context.total_score}`}</p>
+            <p>{`Your total score is: ${this.state.totalScore}`}</p>
           </div>
             <p>{`You have answered this word correctly ${this.state.wordCorrectCount} times.`}</p>
             <p>{`You have answered this word incorrectly ${this.state.wordIncorrectCount} times.`}</p>

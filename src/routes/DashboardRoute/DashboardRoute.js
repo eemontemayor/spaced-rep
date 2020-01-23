@@ -12,7 +12,7 @@ class DashboardRoute extends Component {
     language:'',
     words: [],
     nextWordId:null,
-    total_score:null,
+    totalScore:null,
 
   }
   
@@ -26,7 +26,7 @@ class DashboardRoute extends Component {
       this.setState({
         languageId:res.language.id,
         language:res.language.name,
-        total_score: res.language.total_score,
+        totalScore: res.language.totalScore,
         // nextWordId: res.language.head,
         words:[...res.words]
       })
@@ -65,7 +65,7 @@ class DashboardRoute extends Component {
       languageId:this.state.languageId,
       language:this.state.language,    
       words:this.state.words,               
-      total_score:this.state.total_score
+      totalScore:this.state.totalScore
     }
 
 
@@ -79,7 +79,7 @@ class DashboardRoute extends Component {
               {this.state.language}
             </h2>
     
-            <TotalScore score={this.state.total_score} />         
+            <TotalScore score={this.state.totalScore} />         
           
             <h3>
               Words to practice
