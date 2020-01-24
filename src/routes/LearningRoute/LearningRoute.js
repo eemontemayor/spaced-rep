@@ -27,7 +27,7 @@ class LearningRoute extends Component {
           })
       }
     })
-    console.log(this.state)
+    console.log(this.state,'))))))(((((((')
   }
 
   handleChange = (e) => {
@@ -72,8 +72,7 @@ class LearningRoute extends Component {
           message = <><h2>You were correct! :D</h2></>;
           displayForm = <><Button type='click' onClick={this.handleNext.bind(this)}>Try another word!</Button></>
         } else {
-          message = <><h2>Good try, but not quite right :(</h2>
-          <p>{`The correct translation for ${this.state.prevWord} was ${this.state.answer} and you chose ${this.state.guess_input}!`}</p></>;
+          message = <><h2>Good try, but not quite right :(</h2><p>{`The correct translation for ${this.state.prevWord} was ${this.state.answer} and you chose ${this.state.guess_input}!`}</p></>;
           
           //if the user entered the wrong word
           displayForm = <><Button type='click' onClick={this.handleNext.bind(this)}>Try another word!</Button></>
