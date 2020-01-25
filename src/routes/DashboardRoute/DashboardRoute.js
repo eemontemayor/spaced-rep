@@ -22,15 +22,17 @@ class DashboardRoute extends Component {
 
     LangService.getUserLanguage()
     .then(res => {
-  
+      console.log(res);
       this.setState({
         languageId:res.language.id,
         language:res.language.name,
-        totalScore: res.language.totalScore,
+        totalScore: res.language.total_score,
         // nextWordId: res.language.head,
         words:[...res.words]
-      })
+      }, () => {
+          
         console.log(this.state);
+      })
 
     })
   }

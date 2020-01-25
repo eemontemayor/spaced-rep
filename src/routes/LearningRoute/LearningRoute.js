@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import LangContext from '../../contexts/LangContext'
 import LangService from '../../services/lang-service'
 import Button from '../../components/Button/Button'
-import { Label,Textarea , Input} from '../../components/Form/Form'
+import { Label, Input } from '../../components/Form/Form'
+// import './LearningRoute.css'
 class LearningRoute extends Component {
   state= {
     guess_input: '',
@@ -25,9 +26,8 @@ class LearningRoute extends Component {
           this.setState({
             [key]:value,
           })
-      }
+        }
     })
-    console.log(this.state,'))))))(((((((')
   }
 
   handleChange = (e) => {
@@ -42,9 +42,11 @@ class LearningRoute extends Component {
     console.log(guess)
     //keeps track of word user just finished submitting
     this.setState({
-      prevWord: this.state.nextWord
-    });
-
+      prevWord: this.state.nextWord,
+      // prevIncorrectCount: this.state.wordIncorrectCount,
+      // prevCorrectCount:this.state.wordCorrectCount
+    }, () => {
+       
     LangService.postGuess(guess)
     .then(res => {
       for(const [key,value] of Object.entries(res)){
@@ -52,7 +54,9 @@ class LearningRoute extends Component {
           [key]:value,
         })
       }
-    })
+    }) 
+    });
+
   }
 
   handleNext=(e)=>{
@@ -101,8 +105,10 @@ class LearningRoute extends Component {
           <div className="DisplayScore">
             <p>{`Your total score is: ${this.state.totalScore}`}</p>
           </div>
-            <p>{`You have answered this word correctly ${this.state.wordCorrectCount} times.`}</p>
-            <p>{`You have answered this word incorrectly ${this.state.wordIncorrectCount} times.`}</p>
+          <div className= "WordData">
+              <p>{`You have answered this word correctly ${this.state.wordCorrectCount} times.`}</p>
+              <p>{`You have answered this word incorrectly ${this.state.wordIncorrectCount} times.`}</p>
+          </div>
         </main>
          </div>
       );
