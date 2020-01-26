@@ -1,0 +1,13 @@
+li{
+    list-style: none;
+}
+.word-card{
+    background-color: aqua;
+    margin:10px;
+    width:max-content;
+    border-radius: 8px;
+    padding:2rem;
+}
+.word-card h4{
+    text-align: center;
+}

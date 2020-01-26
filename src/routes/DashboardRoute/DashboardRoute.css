@@ -1,0 +1,23 @@
+.lang-name{
+    text-align: center;
+    background-color: white;
+    padding:40px;
+    border:1px solid black;
+    width:fit-content;
+}
+.start-pract-btn{
+    text-align: center;
+    background-color: white;
+    padding:40px;
+    border:1px solid black;
+    width:fit-content;
+    position: absolute;
+    right:5px;
+    top: 60px;
+}
+
+.word-list{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}

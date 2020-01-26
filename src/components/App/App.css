@@ -1,6 +1,7 @@
 .App{
+    /* padding-top:3vh; */
     min-height:100vh;
-    max-height: fit-content;
+    max-height: max-content;
     width:100vw;
-    background-color: rgb(255, 173, 173);
+    background-color: rgb(133, 131, 131);
 }

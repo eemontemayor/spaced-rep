@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import Word from '../../components/Word/Word'
 import TotalScore from '../../components/TotalScore/TotalScore'
 import LangContext from '../../contexts/LangContext';
-
+import './DashboardRoute.css'
 
 class DashboardRoute extends Component {
   state = {
@@ -77,19 +77,19 @@ class DashboardRoute extends Component {
       <main> 
         <div> 
           <section>
-            <h2>
+            <h2 className='lang-name'>
               {this.state.language}
             </h2>
     
-            <TotalScore score={this.state.totalScore} />         
+            <TotalScore className='total-score-box'score={this.state.totalScore} />         
           
             <h3>
               Words to practice
             </h3>
-            <ul>
+            <ul className='word-list'>
                 {wordList}
             </ul>
-            <button>
+            <button className='start-pract-btn'>
               <Link to={`/learn`}>Start practicing</Link>
             </button>
           </section>
