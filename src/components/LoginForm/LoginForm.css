@@ -1,4 +1,4 @@
-.RegistForm{
+.LoginForm{
     border:1px solid black;
     padding:40px;
     max-width: fit-content;
@@ -8,4 +8,7 @@
     background-color: white;
     box-shadow: 5px 5px 3px grey;
     margin-top:20vh;
+}
+.LoginForm h2{
+    
 }

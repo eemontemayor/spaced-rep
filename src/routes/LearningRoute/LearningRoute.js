@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import LangContext from '../../contexts/LangContext'
 import LangService from '../../services/lang-service'
 import Button from '../../components/Button/Button'
-import { Label,Textarea , Input} from '../../components/Form/Form'
+import { Label , Input} from '../../components/Form/Form'
 class LearningRoute extends Component {
   state= {
     guess_input: '',
