@@ -1,8 +1,10 @@
 .regist-title{
-    color:white;
+    font-size: 1.3em;
+    color:black;
     text-align: center;
 }
 .regist-desc{
-    color:white;
+    font-size: 1.2em;
+    color:black;
     text-align: center;
 }

@@ -1,14 +1,30 @@
 .LoginForm{
     border:1px solid black;
-    padding:40px;
+    padding:60px;
     max-width: fit-content;
     margin:auto;
     border-radius:10px;
     text-align: end;
     background-color: white;
     box-shadow: 5px 5px 3px grey;
-    margin-top:20vh;
+    margin-top:10vh;
+    font-size: 1.2rem;
 }
-.LoginForm h2{
-    
+.sign-up-in-btn{
+    padding:6px;
+    border-radius:5px;
+    font-size:large
+}
+.sign-up-in-btn:hover{
+    cursor:pointer;
+    background-color:green;
+    color:white;
+
+}
+
+@media only screen and (max-width: 760px) {
+    .LoginForm{
+        padding:40px;
+    }
+
 }

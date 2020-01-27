@@ -73,7 +73,7 @@ class LoginForm extends Component {
             required
           />
         </div>
-        <Button type='submit'>
+        <Button className='sign-up-in-btn' type='submit'>
           Login
         </Button>
       </form>
