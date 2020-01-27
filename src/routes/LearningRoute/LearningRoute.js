@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import LangContext from '../../contexts/LangContext'
 import LangService from '../../services/lang-service'
 import Button from '../../components/Button/Button'
-import { Label , Input} from '../../components/Form/Form'
+import { Label, Input } from '../../components/Form/Form'
+import './LearningRoute.css'
 class LearningRoute extends Component {
   state= {
     guess_input: '',
@@ -86,7 +87,7 @@ class LearningRoute extends Component {
     
         //for if there is no answer
         if (!this.state.answer) {
-          message = <><h2>Translate the word:</h2> <span>{this.state.nextWord}</span></>;
+          message = <><h2>Translate the word:</h2> <span className='quest-word'>{this.state.nextWord}</span></>;
           displayForm = <>
             <form onSubmit={this.handleSubmit.bind(this)}>
               <Label htmlFor='learn-guess-input'>What's the translation for this word?</Label>
@@ -100,7 +101,7 @@ class LearningRoute extends Component {
    
     
       return (
-        <div role="main">
+        <div role="main" className='question-card'>
         <main className="score-form">
           <div className="DisplayFeedback">
           {message}

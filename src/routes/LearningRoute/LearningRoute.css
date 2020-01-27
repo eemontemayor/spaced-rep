@@ -1,0 +1,20 @@
+.question-card{
+    background-color: beige;
+    height:fit-content;
+    width:max-content;
+    padding: 40px;
+    border-radius: 8px;
+    margin: auto;
+ 
+    
+}
+
+.quest-word{
+    font-size: 2rem;
+    color: red;
+   /* justify-content: center;
+    */
+    width:fit-content;
+    margin: auto;
+
+}

@@ -42,7 +42,7 @@ class Header extends Component {
 
   render() {
     return (
-      <header>
+      <>
         <h1>
           <Link to='/' id='title'>
             Spaced repetition
@@ -51,7 +51,7 @@ class Header extends Component {
         {TokenService.hasAuthToken()
           ? this.renderLogoutLink()
           : this.renderLoginLink()}
-      </header>
+      </>
     );
   }
 }

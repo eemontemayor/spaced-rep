@@ -1,7 +1,29 @@
 .App{
-    /* padding-top:3vh; */
-    min-height:100vh;
-    max-height: max-content;
-    width:100vw;
-    background-color: rgb(133, 131, 131);
+  
+   height: 100vh;
+   width: 100vw;
 }
+
+main.App__Main{
+    position: fixed;
+    height:95vh;
+    margin-top: 5vh;
+    background-color:#302A30;
+    width:100vw;
+    max-height: max-content;
+}
+header.App__Header{
+
+    
+    position: fixed;
+    top:0;
+      width:100%;
+      height: 5vh;
+  
+      
+      z-index: 100;
+      background-color: #F5DBD1;
+      box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
+  
+      
+  }
