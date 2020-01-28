@@ -1,16 +1,18 @@
 .App{
-  
-   height: 100vh;
-   width: 100vw;
+ 
+
+   height: auto;
+   width: 100%;
 }
 
 main.App__Main{
     position: fixed;
     height:95vh;
     margin-top: 5vh;
-    background-color:#C9C5CB;
-    width:100vw;
-    max-height: max-content;
+    background-color:#D7D9D7;
+    overflow-y: auto;
+    width:fit-content;
+    padding:30px;
 }
 header.App__Header{
 

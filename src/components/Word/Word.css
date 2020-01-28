@@ -2,14 +2,18 @@ li{
     list-style: none;
 }
 .word-card{
-    background-color: #D7D9D7;
-    margin:10px;
+    background-color: #C9C5CB;
+    margin:25px;
+    height:auto;
+    
     width:max-content;
+    border:1px solid #8BA0AC;
     border-radius: 8px;
     padding:2rem;
-    box-shadow: 5px 5px 3px #8BA0AC;
+    box-shadow: 10px 10px 6px -1px #8BA0AC;
 }
 .word-card h4{
     text-align: center;
-    color:#9A132F
+    color:#9A132F;
+    font-size: 1.5em;
 }

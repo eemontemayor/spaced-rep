@@ -7,7 +7,9 @@ export default class TotalScore extends Component {
         console.log(this.props)
         return(
             <>   
+                <h3 className='total-score'>
                 Total correct answers: {this.context.totalScore}       
+                </h3>
             </>
         )
     }
