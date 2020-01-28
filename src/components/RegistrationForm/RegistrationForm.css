@@ -13,7 +13,8 @@
 .sign-up-in-btn{
     padding:6px;
     border-radius:5px;
-    font-size:large
+    font-size:large;
+    margin-top:7px;
 }
 .sign-up-in-btn:hover{
     cursor:pointer;

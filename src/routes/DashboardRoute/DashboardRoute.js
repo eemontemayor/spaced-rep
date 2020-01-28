@@ -75,24 +75,32 @@ class DashboardRoute extends Component {
     return (
       <LangContext.Provider value={value} role="main">
       <main> 
-        <div> 
-          <section>
-            <h2 className='lang-name'>
-              {this.state.language}
-            </h2>
-    
-            <TotalScore className='total-score-box'score={this.state.totalScore} />         
-          
+        <div className='parent'> 
+            
+              <div className='NameContainer'>
+
+            <h2 className='lang-name'>{this.state.language}</h2>
+              </div>
+            <div className='ScoreContainer'>
+
+            <TotalScore className='total-score'score={this.state.totalScore} />         
+            </div>
+            <div className='StartBtnContainer'>
+              
+            <button className='start-pract-btn'>
+              <Link to={`/learn`}>Start practicing</Link>
+            </button>
+          </div>
+           
+            <div className='ListContainer'>
             <h3>
               Words to practice
             </h3>
             <ul className='word-list'>
                 {wordList}
             </ul>
-            <button className='start-pract-btn'>
-              <Link to={`/learn`}>Start practicing</Link>
-            </button>
-          </section>
+           
+          </div>
         </div>
       </main>
      </LangContext.Provider>

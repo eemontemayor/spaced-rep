@@ -16,7 +16,7 @@ class Header extends Component {
       <div>
         <span>
           <p id='user-name'>
-          {this.context.user.name}
+          Hello, {this.context.user.name}!
           </p>
         </span>
         <nav className='nav_links'>

@@ -40,11 +40,19 @@ a{
     text-decoration: none;
 }
 #user-name{
+    font-size:1.1em;
+    color:white;
     text-align: center;
+    margin:auto;
     width:fit-content;
     /* float: right; */
 }
 @media only screen and (max-width: 760px) {
 
-
+    #user-name{
+        display:none;
+    }
+    nav.nav_links .link{
+        font-size:.7em;
+    }
 }
