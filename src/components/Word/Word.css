@@ -5,8 +5,8 @@ li{
     background-color: #C9C5CB;
     margin:25px;
     height:auto;
-    
-    width:max-content;
+    width:250px;
+    min-width:fit-content;
     border:1px solid #8BA0AC;
     border-radius: 8px;
     padding:2rem;

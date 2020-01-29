@@ -77,12 +77,12 @@ class LearningRoute extends Component {
         if(this.state.isCorrect) {
           message = <><h2>You were correct! :D</h2></>;
           displayForm = <><Button type='click' onClick={this.handleNext.bind(this)}>Try another word!</Button></>
-          wordData =<><p>{`You have answered this word correctly ${this.state.prevCorrectCount+1} times.`}</p>
-          <p>{`You have answered this word incorrectly ${this.state.prevIncorrectCount} times.`}</p></>
+          wordData =<><p>{`correct guesses: ${this.state.prevCorrectCount+1} times.`}</p>
+          <p>{`incorrect guesses: ${this.state.prevIncorrectCount} times.`}</p></>
         } else {
           message = <><h2>Good try, but not quite right :(</h2><p>{`The correct translation for ${this.state.prevWord} was ${this.state.answer} and you chose ${this.state.guess_input}!`}</p></>;
-          wordData =<><p>{`You have answered this word correctly ${this.state.prevCorrectCount} times.`}</p>
-          <p>{`You have answered this word incorrectly ${this.state.prevIncorrectCount +1} times.`}</p></>
+          wordData =<><p>{`correct guesses: ${this.state.prevCorrectCount} times.`}</p>
+          <p>{`incorrect guesses: ${this.state.prevIncorrectCount +1} times.`}</p></>
           //if the user entered the wrong word
           displayForm = <><Button type='click' onClick={this.handleNext.bind(this)}>Try another word!</Button></>
         } 
@@ -110,12 +110,13 @@ class LearningRoute extends Component {
           </div>
           {displayForm}      
           <div className="DisplayScore">
-            <p className='total-score-quest-fb'>{`Your total score is: ${this.state.totalScore}`}</p>
+            <p className='total-score-quest-fb'>{`Total Score: ${this.state.totalScore}`}</p>
             </div>
             <div className='DisplayWordData'>
               {wordData}
             </div>
-        </main>
+          </main>
+      
          </div>
       );
     }

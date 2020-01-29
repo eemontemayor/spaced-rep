@@ -39,7 +39,7 @@ describe(`User story: Presented with word`, function() {
         cy.get('p').eq(0)
           .should(
             'have.text',
-            `Your total score is: ${languageHeadFixture.totalScore}`,
+            `Total Score: ${languageHeadFixture.totalScore}`,
           )
       })
   })
@@ -72,11 +72,11 @@ describe(`User story: Presented with word`, function() {
         cy.root()
           .should(
             'contain',
-            `You have answered this word correctly ${languageHeadFixture.wordCorrectCount} times.`,
+            `correct guesses: ${languageHeadFixture.wordCorrectCount} times.`,
           )
           .and(
             'contain',
-            `You have answered this word incorrectly ${languageHeadFixture.wordIncorrectCount} times.`,
+            `incorrect guesses: ${languageHeadFixture.wordIncorrectCount} times.`,
           )
       })
     })
