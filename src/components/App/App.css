@@ -11,7 +11,8 @@ main.App__Main{
     margin-top: 5vh;
     background-color:#D7D9D7;
     overflow-y: auto;
-    width:fit-content;
+   min-width:fit-content;
+   width:100%;
     padding:30px;
 }
 header.App__Header{

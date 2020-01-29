@@ -16,18 +16,20 @@ class LearningRoute extends Component {
     // total_score:8,
   }
   static contextType = LangContext
+  GuessInput = React.createRef()
 
-
-  componentDidMount(){
+  componentDidMount() {
+    
     LangService.getHeadWord()
-      .then(res => {
-        console.log(res)
-        for(const [key,value] of Object.entries(res)){
-          this.setState({
-            [key]:value,
-          })
-        }
+    .then(res => {
+      console.log(res)
+      for(const [key,value] of Object.entries(res)){
+        this.setState({
+          [key]:value,
+        })
+      }
     })
+    this.GuessInput.current.focus()
   }
 
   handleChange = (e) => {
@@ -87,12 +89,12 @@ class LearningRoute extends Component {
     
         //for if there is no answer
         if (!this.state.answer) {
-          message = <><h2>Translate the word:</h2> <span className='quest-word'>{this.state.nextWord}</span></>;
+          message = <><h2>Translate the word:</h2> <span id='quest-word'>{this.state.nextWord}</span></>;
           displayForm = <>
             <form onSubmit={this.handleSubmit.bind(this)}>
-              <Label htmlFor='learn-guess-input'>What's the translation for this word?</Label>
-              <Input type='text' id='learn-guess-input' name='guess_input' onChange={this.handleChange.bind(this)} required />
-              <Button type='submit'>Submit your answer</Button>
+              <Label htmlFor='learn-guess-input' className='quest-text'>What's the translation for this word?</Label><br/>
+              <Input ref={this.GuessInput}type='text' id='learn-guess-input' name='guess_input' onChange={this.handleChange.bind(this)} required />
+              <Button className='guess-submit-btn'type='submit'>Submit your answer</Button>
             </form></>
              wordData =<><p>{`You have answered this word correctly ${this.state.wordCorrectCount} times.`}</p>
              <p>{`You have answered this word incorrectly ${this.state.wordIncorrectCount} times.`}</p></>
@@ -108,7 +110,7 @@ class LearningRoute extends Component {
           </div>
           {displayForm}      
           <div className="DisplayScore">
-            <p>{`Your total score is: ${this.state.totalScore}`}</p>
+            <p className='total-score-quest-fb'>{`Your total score is: ${this.state.totalScore}`}</p>
             </div>
             <div className='DisplayWordData'>
               {wordData}
