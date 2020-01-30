@@ -39,18 +39,19 @@ class DashboardRoute extends Component {
 
 
 //    TODO = 
-
-// CHANGE DB TO MANDARIN AND ADD MORE WORDS
+// REFACTOR STUPID QUESTION AND FEEDBACK SECTION
 // FINISH STYLING 
-// INCLUDE PHOENETIC PRONUNCIATION
+        //GIVE START PRACTICING BUTTON SOME COOL FEATURE
+// CHANGE DB TO SPANISH 
 // ADD A FOOTER THAT EXPLAINS THE ALGO --> LANDING PAGE PRESENTS THE DETAILS
 // DEPLOY  
+// INCLUDE PHOENETIC PRONUNCIATION
 // ALLOW USER TO SWITCH LANGUAGES X TO ENGLISH, ENGLISH TO X SO THEY CAN GUESS BIDIRECTIONALLY AND SPRINKLE A FLIPPED ONE IN THERE RANDOMLY
 //****NEW ROUTE: WHEN USER CLICKS ON TOTAL SCORE IT WILL TAKE THEM TO A TRENDS + DATA PAGE
 //***** NEW ROUTE: ADD A BUTTON ON TOP OF LIST TO ALLOW USER TO ADD A NEW WORD
 // WHEN USER CLICKS ON WORD CARD FROM DASHBOARD ROUTE CARD WILL FLIP TO SHOW A PICTURE
-
-
+// ALLOW USER TO SHOW PW ON LOGIN FORM
+//ADD MANDARIN
   generateWordList=(words)=>{
     
       let wordList= words.map((item,index)=>{
@@ -95,16 +96,16 @@ class DashboardRoute extends Component {
 
             <TotalScore score={this.state.totalScore} />         
             </div>
-            <div className='StartBtnContainer'>
+      
               
-            <button className='start-pract-btn'>
+            <button className='StartBtnContainer start-pract-btn'>
                 <Link to={`/learn`}>
                   <p>
                   Start practicing
                 </p>
                   </Link>
             </button>
-          </div>
+       
            
             <div className='ListContainer'>
             <h3 className='list-msg'>

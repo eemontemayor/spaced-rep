@@ -91,7 +91,7 @@ class LearningRoute extends Component {
         if (!this.state.answer) {
           message = <><h2>Translate the word:</h2> <span id='quest-word'>{this.state.nextWord}</span></>;
           displayForm = <>
-            <form onSubmit={this.handleSubmit.bind(this)}>
+            <form id='quest-form' onSubmit={this.handleSubmit.bind(this)}>
               <Label htmlFor='learn-guess-input' className='quest-text'>What's the translation for this word?</Label><br/>
               <Input ref={this.GuessInput}type='text' id='learn-guess-input' name='guess_input' onChange={this.handleChange.bind(this)} required />
               <Button className='guess-submit-btn'type='submit'>Submit your answer</Button>
@@ -113,6 +113,7 @@ class LearningRoute extends Component {
             <p className='total-score-quest-fb'>{`Total Score: ${this.state.totalScore}`}</p>
             </div>
             <div className='DisplayWordData'>
+              WORD STATS:
               {wordData}
             </div>
           </main>
