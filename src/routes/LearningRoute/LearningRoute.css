@@ -1,5 +1,5 @@
 .question-card{
-    
+    box-shadow:         3px 3px 5px 6px #ccc;
     position:relative;
     background-color: beige;
     min-height:fit-content;
@@ -46,7 +46,8 @@ margin-top:50px;
 }
 .DisplayFeedback{
    text-align:center;
-    
+    height:auto;
+    width:100%;
 }
 .DisplayScore{
     width:fit-content;
@@ -132,10 +133,49 @@ cursor:pointer;
     input#learn-guess-input{
         min-width: 50vw;
         margin-bottom:20px;
+        font-size: 1.5rem;
+    }
+    #quest-word{
+        font-size: 1.5rem;
+        margin-bottom:25px;
+    }
+    div.DisplayFeedback{
+        height: fit-content;
+        font-size: .8em;
+      
     }
     .question-card{
-        width:90vw;
+        width:95vw;
         padding:10px;
+        height:70vh;
+        margin-top:2vh;
+    }
+    .quest-text{
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+    }
+    Button.guess-submit-btn{
+        width:100vw;
+        padding:10px;
+        border-radius: 0px;
+        position:fixed;
+        bottom:0;
+        right:0;
+        font-size:1.3em;
+        margin: auto;
+    }
+    .DisplayWordData{
+        font-size:.8rem;
+    }
+    .total-score-quest-fb{
+        font-size: .9em;
     }
 
+.feedback-message{
+    /* position:absolute; */
+    margin-top:70px;
+    font-size:1.1rem;
+    text-align: center;
+    /* vertical-align: middle; */
+}
 }
