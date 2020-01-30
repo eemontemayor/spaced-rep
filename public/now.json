@@ -1,0 +1,9 @@
+{
+    "version": 2,
+    "alias":"enriques-reps",
+    "name": "reps",
+    "routes": [
+        { "handle": "filesystem" },
+        { "src": "/.*", "dest": "/index.html" }
+    ]
+  }
