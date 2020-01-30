@@ -38,7 +38,17 @@ class DashboardRoute extends Component {
   }
 
 
+//    TODO = 
 
+// CHANGE DB TO MANDARIN AND ADD MORE WORDS
+// FINISH STYLING 
+// INCLUDE PHOENETIC PRONUNCIATION
+// ADD A FOOTER THAT EXPLAINS THE ALGO --> LANDING PAGE PRESENTS THE DETAILS
+// DEPLOY  
+// ALLOW USER TO SWITCH LANGUAGES X TO ENGLISH, ENGLISH TO X SO THEY CAN GUESS BIDIRECTIONALLY AND SPRINKLE A FLIPPED ONE IN THERE RANDOMLY
+//****NEW ROUTE: WHEN USER CLICKS ON TOTAL SCORE IT WILL TAKE THEM TO A TRENDS + DATA PAGE
+//***** NEW ROUTE: ADD A BUTTON ON TOP OF LIST TO ALLOW USER TO ADD A NEW WORD
+// WHEN USER CLICKS ON WORD CARD FROM DASHBOARD ROUTE CARD WILL FLIP TO SHOW A PICTURE
 
 
   generateWordList=(words)=>{
@@ -75,7 +85,7 @@ class DashboardRoute extends Component {
     return (
       <LangContext.Provider value={value} role="main">
       <main> 
-        <div className='parent'> 
+        <div className='DashboardPage'> 
             
               <div className='NameContainer'>
 
@@ -88,7 +98,8 @@ class DashboardRoute extends Component {
             <div className='StartBtnContainer'>
               
             <button className='start-pract-btn'>
-                <Link to={`/learn`}><p>
+                <Link to={`/learn`}>
+                  <p>
                   Start practicing
                 </p>
                   </Link>
@@ -99,6 +110,7 @@ class DashboardRoute extends Component {
             <h3 className='list-msg'>
               Words to practice
             </h3>
+              
             <ul className='word-list'>
                 {wordList}
             </ul>

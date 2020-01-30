@@ -9,7 +9,8 @@ h2.lang-name{
 .start-pract-btn{
     font-size: 1.3em;
     background-color:#D7D9D7 ;
-    
+    height:auto;
+    width:100%;
     
 }
 .start-pract-btn p{
@@ -40,7 +41,7 @@ h3.list-msg{
  
 
   
-        .parent {
+        .DashboardPage {
             height:100%;
             width:auto;
             display: grid;
@@ -111,7 +112,7 @@ h3.list-msg{
             @media only screen and (max-width: 375px) {
                 /*  make sure to make it responsive for lanscape mode*/
 
-            .parent{
+            .DashboardPage{
                 display:block;
                 overflow: scroll;
                 width:100vw;

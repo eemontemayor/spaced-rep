@@ -111,7 +111,7 @@ button {
     width: 600px;
     height: 200px;
     /*border-radius*/
-    border-radius: 100px;
+    /* border-radius: 100px;
     background: #fff;
     position: absolute;
     border: 5px solid #6fb07f
@@ -165,4 +165,4 @@ button:focus > img {
     }
 
 
- */
+ */ */

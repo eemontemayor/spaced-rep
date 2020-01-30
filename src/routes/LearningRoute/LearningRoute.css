@@ -2,7 +2,7 @@
     background-color: beige;
     min-height:fit-content;
     height:auto;
-    width:80vw;
+    width:40vw;
     min-width:fit-content;
     padding: 40px;
     border-radius: 8px;
@@ -24,6 +24,9 @@
     margin-top:25px;
     margin-bottom: 50px;
 
+}
+.DisplayFeedback{
+    text-align: center;
 }
 .DisplayWordData{
     
@@ -47,6 +50,25 @@ input#learn-guess-input{
     height:2.5rem;
     min-width:25%;
 }
+.WordData.green{
+    color:green;
+}
+.WordData.red{
+    color:red;
+}
+.NextWordBtn{
+    text-align: center;
+    float:right;
+    width:100px;
+    word-wrap:break-word;
+    height:100px;
+    border-radius: 8px;
+}
+.NextWordBtn:hover{
+    cursor: pointer;
+    background-color: green;
+    color:white;
+}
 
 .quest-text{
     display: block;
@@ -55,7 +77,7 @@ input#learn-guess-input{
     text-align: center;
 }
 .guess-submit-btn{
-    display:inline-flex;
+    float:right;
     color:white;
     width:100px;
     word-wrap:break-word;
@@ -69,7 +91,12 @@ cursor:pointer;
 }
 @media only screen and (max-width: 375px) {
     input#learn-guess-input{
-        min-width: 33%;
+        min-width: 50vw;
+        margin-bottom:20px;
+    }
+    .question-card{
+        width:90vw;
+        padding:10px;
     }
 
 }
