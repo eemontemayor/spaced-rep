@@ -11,7 +11,8 @@
     margin: auto;
     margin-top: 12vh;
  
-    
+    max-width:750px;
+    max-height:750px;
 }
 .score-form{
 margin-top:50px;

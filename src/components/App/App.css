@@ -33,3 +33,11 @@ header.App__Header{
   
       
   }
+  @media only screen and (max-width: 375px) {
+
+    main.App__Main{
+      padding:0;
+    }
+
+
+  }

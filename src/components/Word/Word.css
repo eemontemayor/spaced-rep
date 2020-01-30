@@ -17,3 +17,14 @@ li{
     color:#9A132F;
     font-size: 1.5em;
 }
+@media only screen and (max-width: 375px) {
+    .word-card{
+        margin:auto;
+        width:90vw;
+        height:fit-content;
+        margin-bottom:15px;
+        padding:10px;
+    }
+
+
+}
