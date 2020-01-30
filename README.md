@@ -1,47 +1,44 @@
-# Spaced Repetition Capstone
+# REPS
+## Spaced Repetition Capstone Project
 
-## Setup
 
-To setup the application
+## Author
 
-1. Fork and clone the project to your machine
-2. `npm install`. This will also install the application *Cypress.io* for running browser integration tests
+ Enrique Montemayor
 
-The project expects you have the Spaced repetition API project setup and running on http://localhost:8000.
 
-Find instructions to setup the API here https://github.com/Thinkful-Ed/spaced-repetition-api.
+## Live Application Link: 
+[Reps] XXXXXXXXXX
 
-## Running project
+## Summary:
 
-This is a `create-react-app` project so `npm start` will start the project in development mode with hot reloading by default.
+This app is designed for optimal learning of the Spanish language using a spaced repetition algorithm. If you guess the translation of a given word correctly, you will be quizzed on it less often. Consecutive correct guess of a particular word will push that word further and further down the linked list.
 
-## Running the tests
 
-This project uses [Cypress IO](https://docs.cypress.io) for integration testing using the Chrome browser.
+Simply create an account and start learning!
 
-Cypress has the following expectations:
 
-- You have cypress installed (this is a devDependency of the project)
-- You have your application running at http://localhost:3000.
-  - You can change the address of this expectation in the `./cypress.json` file.
-- Your `./src/config.js` is using http://localhost:8000/api as the `API_ENDPOINT`
 
-To start the tests run the command:
+## Client Repo: 
+[Reps Client]XXXXXXX
 
-```bash
-npm run cypress:open
-```
+## Server Repo:
+[Reps Server]XXXXXX
 
-On the first run of this command, the cypress application will verify its install. Any other runs after this, the verification will be skipped.
+### API Documentation:
+GET /api/language
+    returns the list of words for the given language
 
-The command will open up the Cypress application which reads tests from the `./cypress/integration/` directory. You can then run individual tests by clicking on the file names or run all tests by clicking the "run all tests" button in the cypress GUI.
+GET  /api/language/head
+    returns: the next word the user will be quizzed on,                 
+            the number of correct and incorrect guesses for the head word 
+            the user's total score for that language
 
-Tests will assert against your running localhost client application.
+POST /api/language/guess
+    returns: the correct answer,updated total score, the next word and its data, 
 
-You can also start all of the tests in the command line only (not using the GUI) by running the command:
+    "Memory value" is used to ensure that words that have been answered correctly multiple times are tested less frequently, while the correct and incorrect counts are the number of times the user has guessed correctly or incorrectly. "Next" points to the next word on the linked list.
 
-```bash
-npm run cypress:run
-```
 
-This will save video recordings of the test runs in the directory `./cypress/videos/`.
+### Screenshots
+XXXXXX
