@@ -5,13 +5,13 @@ h2.lang-name{
   
     margin:auto;
 }
-.start-pract-btn{
+/* .start-pract-btn{
     font-size: 1.3em;
     background-color:#D7D9D7 ;
     height:auto;
     width:100%;
     
-}
+} */
 .start-pract-btn p{
     color: white;
     font-size:1.3rem;
@@ -58,7 +58,10 @@ h3.list-msg{
         
             .NameContainer{
                 font-size: 1.5em;
-                background-color: #9A132F;
+                background: #ee0979;  /* fallback for old browsers */
+                background: -webkit-linear-gradient(to right, #ff6a00, #ee0979);  /* Chrome 10-25, Safari 5.1-6 */
+                background: linear-gradient(to right, #ff6a00, #ee0979); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+                
                 color:#D7D9D7;
               width:fit-content;
               margin: auto;
