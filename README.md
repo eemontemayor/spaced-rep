@@ -20,10 +20,10 @@ Simply create an account and start learning!
 
 
 ## Client Repo: 
-[Reps Clienthttps://github.com/eemontemayor/spaced-rep
+[Reps Client] https://github.com/eemontemayor/spaced-rep
 
 ## Server Repo:
-[Reps Server]https://github.com/eemontemayor/spaced-rep-api
+[Reps Server] https://github.com/eemontemayor/spaced-rep-api
 
 ### API Documentation:
 #### GET /api/language
