@@ -12,19 +12,15 @@ h2.lang-name{
     width:100%;
     
 } */
-.start-pract-btn p{
-    color: white;
-    font-size:1.3rem;
-    text-decoration: none;
-}
+
 
 ul.word-list{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     margin:auto;
-    align-items: center;
-    width:fit-content;
+   justify-content: space-evenly;
+    width:95%;
     height:auto;
     padding:0;
 }
@@ -62,7 +58,7 @@ h3.list-msg{
                 background: -webkit-linear-gradient(to right, #ff6a00, #ee0979);  /* Chrome 10-25, Safari 5.1-6 */
                 background: linear-gradient(to right, #ff6a00, #ee0979); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
                 
-                color:#D7D9D7;
+                color:snow;
               width:fit-content;
               margin: auto;
               height:auto;
@@ -86,25 +82,39 @@ background-color: aquamarine;
                 border-radius: 8px;
             }
             .StartBtnContainer { 
-                box-shadow: 0 20px 50px rgba(59, 43, 91, 0.7);
+                
                 width:fit-content;
-                font-size:1.3em;
+                
                 height:auto;
-                padding:40px;
+                
                 margin:auto;
                 text-align: center;
-                background-color: rgb(0, 153, 0);
-                color:white;
+             
+             
                
-                border-radius: 25px;
-                transition: all 2s ease;
+                
              }
-             .StartBtnContainer:hover { 
+             button.start-pract-btn p{
+                color: white;
+                font-size:1.3rem;
+                text-decoration: none;
+            }
+            button.start-pract-btn{
+                padding:25px;
+                height:auto;
+                width:100%;
+                box-shadow: 0 20px 50px rgba(59, 43, 91, 0.7);
+                border-radius: 25px;
+                background-color: rgb(0, 153, 0);
+                margin:auto;
+                transition: all 2s ease-in-out;
+            }
+            button.start-pract-btn:hover{
                 transform: scale(1.2);
-                font-size:1.4em;
+                /* font-size:1.4em; */
                 cursor: pointer;
-                color:black;
-                font-weight: bolder;
+                
+                /* font-weight: bolder; */
             }
             .ListContainer{
                 min-height: fit-content;

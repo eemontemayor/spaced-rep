@@ -62,14 +62,17 @@ class DashboardRoute extends Component {
             <div className="ScoreContainer">
               <TotalScore score={this.state.totalScore} />
             </div>
+            <div className='StartBtnContainer'>
 
-            <button className="StartBtnContainer start-pract-btn">
               <Link to={`/learn`}>
+            <button className="start-pract-btn">
                 <p>Start practicing</p>
-              </Link>
             </button>
+              </Link>
+            </div>
 
             <div className="ListContainer">
+              {/* <Link to={'/add-word'}>Add a new word</Link> */}
               <h3 className="list-msg">Words to practice</h3>
 
               <ul className="word-list">{wordList}</ul>
