@@ -9,13 +9,88 @@ li{
     min-width:fit-content;
     border:1px solid #8BA0AC;
     border-radius: 8px;
-    padding:20px;
+    padding:12px;
     box-shadow: 10px 10px 6px -1px #8BA0AC;
+    transition: all 1s ease;
+}
+.word-card:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+}
+.word-card p{
+    color:black;
+    text-decoration: none;
 }
 .word-card h4{
+    margin-top:3px;
+
     text-align: center;
     color:#9A132F;
     font-size: 1.5em;
+}
+.word-card-large .icon-container{
+    float:right;
+}
+.word-card-large{
+    position:relative;
+    background-color: floralwhite;
+    margin:auto;
+height:auto;
+    min-height:50%;
+    min-width:400px;
+    width:fit-content;
+    border:1px solid #8BA0AC;
+    border-radius: 8px;
+    padding:10px 20px 10px 20px;
+    box-shadow: 10px 10px 6px -1px #8BA0AC;
+}
+.word-card-large .original{
+    border-bottom:1px ridge grey;
+    text-align: center;
+    color:#9A132F;
+    padding-bottom:1.3em;
+   
+    font-size: 2.5em;
+}
+.word-card-large .translation{
+    border-top:1px ridge grey;
+
+    padding-top:1.3em;
+    text-align: center;
+    color:black;
+    font-size: 2.5em;
+}
+.word-card-large p{
+   /* position:absolute;
+   bottom:0; */
+
+    color:black;
+    font-size: 1.2em;
+}
+.word-card-large  .corr-count{
+       position:absolute;
+   bottom:5px;
+   right:15px;
+}
+.word-card-large  .incorr-count{
+     position:absolute;
+   bottom:5px;
+}
+button.icon-btn-pen{
+    background-color:none;
+    border:none;
+    }
+button.icon-btn-pen:hover{
+        cursor:pointer;
+
+    }
+button.icon-btn-trash{
+    background-color:none;
+    border:none;
+}
+button.icon-btn-trash:hover{
+   
+    cursor:pointer;
 }
 @media only screen and (max-width: 375px) {
     .word-card{

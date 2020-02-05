@@ -5,7 +5,8 @@ import Word from "../../components/Word/Word";
 import TotalScore from "../../components/TotalScore/TotalScore";
 import LangContext from "../../contexts/LangContext";
 import "./DashboardRoute.css";
-
+import Tooltip from '../../components/Tooltip/Tooltip'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 class DashboardRoute extends Component {
   state = {
     languageId: null,
@@ -31,11 +32,17 @@ class DashboardRoute extends Component {
     let wordList = words.map((item, index) => {
       return (
         <li key={index}>
+          <Link to={`/word/${item.id}`}>
+          
           <Word
+            id={item.id}
             original={item.original}
             correct_count={item.correct_count}
             incorrect_count={item.incorrect_count}
-          />
+              />
+                
+
+            </Link>
         </li>
       );
     });
@@ -65,17 +72,27 @@ class DashboardRoute extends Component {
             <div className='StartBtnContainer'>
 
               <Link to={`/learn`}>
-            <button className="start-pract-btn">
-                <p>Start practicing</p>
+                <button className="start-pract-btn">
+                  <FontAwesomeIcon icon='play-circle' size='6x'><p>Start practicing</p></FontAwesomeIcon>
+                
             </button>
               </Link>
             </div>
-
             <div className="ListContainer">
-              {/* <Link to={'/add-word'}>Add a new word</Link> */}
               <h3 className="list-msg">Words to practice</h3>
+                <ul className="word-list">
+                  {wordList}
+              <li className='word-card'>
 
-              <ul className="word-list">{wordList}</ul>
+              <Link to={'/add-word'} >
+                  <button className='add-word-btn'>
+                    <Tooltip message='add a word to list'>
+                      <FontAwesomeIcon size='lg' icon='plus'/>
+                    </Tooltip>
+                  </button>
+                </Link>
+              </li>
+                </ul>
             </div>
           </div>
         </main>

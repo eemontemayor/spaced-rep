@@ -1,18 +1,118 @@
-h2.lang-name{
+
+  
+.DashboardPage {
+    height:100%;
+    width:auto;
+    display: grid;
+    grid-auto-rows: auto;
+    /* grid-template-rows: repeat(6, 1fr); */
+    grid-template-columns: repeat(6, 1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+}
+            
+
+
+
+.ListContainer {}
+        
+.NameContainer{
+    grid-area: 1 / 1 / 2 / 3; 
+    font-size: 1.5em;
+    color:black;
+    margin: auto;
+    height:inherit;
+    width:100%;
+    border-bottom:1px solid grey;
+    border-right:1px solid grey;
+    /* padding:1em 2em; */
+    display: inline-grid;
+} 
+.NameContainer h2.lang-name{
     text-align: center;
 
     width:fit-content;
   
     margin:auto;
 }
-/* .start-pract-btn{
-    font-size: 1.3em;
-    background-color:#D7D9D7 ;
-    height:auto;
+         
+.ScoreContainer{ 
+    display: inline-grid;
+    font-size: 1.2em;
+    grid-area: 1 / 3 / 2 / 5; 
     width:100%;
+    border-bottom:1px solid grey;
+    border-right:1px solid grey;
+    margin:auto;
+    height:inherit;
+    text-align: center;
+    padding:.8em ;
     
-} */
+}
+h3.total-score{
+ 
+    font-size: 1.2em;
+   text-decoration: underline;
+}
+h2.score-num{
+    font-size: 2em;
+    width: fit-content;
+    height: fit-content;
+    margin:auto;
+}
 
+
+
+
+
+.StartBtnContainer { 
+    grid-area: 1 / 5 / 1 / 7; 
+    width:100%;
+    height:inherit;
+    margin:auto;
+    text-align: center;
+    border-bottom:1px solid grey;
+    /* border-right:1px solid grey; */
+}
+    button.start-pract-btn p{
+    color: white;
+    font-size:1.3rem;
+    text-decoration: none;
+}
+button.start-pract-btn{
+    /* padding:25px; */
+    height:100px;
+    width:100px;
+    box-shadow: 0 20px 50px rgba(59, 43, 91, 0.7);
+    border-radius: 50%;
+    margin:auto;
+    background-color: rgb(31, 141, 31);
+    transition: all 2s ease-in-out;
+}
+button.start-pract-btn:hover{
+    background-color: rgb(31, 184, 31);
+
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+button.add-word-btn{
+    background-color: yellow;
+    text-align:center;
+    /* display: inline-block; */
+}
+
+
+.ListContainer{
+    min-height: fit-content;
+    grid-area: 2 / 1 / 7 / 7; 
+    height:auto;
+    /* margin-top:30px; */
+    width: 100%;
+    padding:0;
+    /* background-color: white; */
+    
+}
 
 ul.word-list{
     display: flex;
@@ -23,6 +123,7 @@ ul.word-list{
     width:95%;
     height:auto;
     padding:0;
+    /* border-top:1px solid black; */
 }
 
 h3.list-msg{
@@ -30,100 +131,6 @@ h3.list-msg{
     font-size:1.5em;
     text-decoration: underline;
 }
-.total-score{
- 
-     font-size: 1.2em;
- }
- 
-
-  
-        .DashboardPage {
-            height:100%;
-            width:auto;
-            display: grid;
-            grid-template-rows: repeat(6, 1fr);
-            grid-template-columns: repeat(6, 1fr);
-            grid-column-gap: 10px;
-            grid-row-gap: 10px;
-            }
-            
-            .NameContainer { grid-area: 1 / 1 / 3 / 3; }
-            .ScoreContainer { grid-area: 1 / 3 / 3 / 5; }
-            .StartBtnContainer { grid-area: 1 / 5 / 3 / 7; }
-            .ListContainer { grid-area: 3 / 1 / 7 / 7; }
-        
-            .NameContainer{
-                font-size: 1.5em;
-                background: #ee0979;  /* fallback for old browsers */
-                background: -webkit-linear-gradient(to right, #ff6a00, #ee0979);  /* Chrome 10-25, Safari 5.1-6 */
-                background: linear-gradient(to right, #ff6a00, #ee0979); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-                
-                color:snow;
-              width:fit-content;
-              margin: auto;
-              height:auto;
-              /* border:1px solid black; */
-              border-radius:8px;
-              box-shadow: inset -12px -8px 40px #464646;
-              padding:2.5em;
-            } 
-         
-            .ScoreContainer{ 
-                font-size: 1.2em;
-                color: #D9442A;
-background-color: aquamarine;
-                width:fit-content;
-                margin:auto;
-              height:auto;
-              /* border:1px solid black; */
-              box-shadow: inset -12px -8px 40px #464646;
-                text-align: center;
-                padding:2.5em;
-                border-radius: 8px;
-            }
-            .StartBtnContainer { 
-                
-                width:fit-content;
-                
-                height:auto;
-                
-                margin:auto;
-                text-align: center;
-             
-             
-               
-                
-             }
-             button.start-pract-btn p{
-                color: white;
-                font-size:1.3rem;
-                text-decoration: none;
-            }
-            button.start-pract-btn{
-                padding:25px;
-                height:auto;
-                width:100%;
-                box-shadow: 0 20px 50px rgba(59, 43, 91, 0.7);
-                border-radius: 25px;
-                background-color: rgb(0, 153, 0);
-                margin:auto;
-                transition: all 2s ease-in-out;
-            }
-            button.start-pract-btn:hover{
-                transform: scale(1.2);
-                /* font-size:1.4em; */
-                cursor: pointer;
-                
-                /* font-weight: bolder; */
-            }
-            .ListContainer{
-                min-height: fit-content;
-                height:auto;
-                margin:10px;
-                width: 100%;
-                padding:0;
-                
-            }
         
             @media only screen and (max-width: 375px) {
                 .start-pract-btn{
@@ -141,8 +148,9 @@ background-color: aquamarine;
                 width:90vw;
                 margin: auto;
                 padding:20px;
-                margin-bottom:20px;
+              
                 margin-top:20px;
+                border-right: none;
             }
             .ScoreContainer{
              font-size: 1.1em;   
@@ -150,26 +158,38 @@ background-color: aquamarine;
              padding:10px;
             width:90vw;
             margin: auto;
-               display: block;
+            border-right: none;   
+            display: block;
             }
-            ul.word-list{
-                height: fit-content;;
-                margin:auto;
-                width:100vw;
-                padding:0;
-                overflow: auto;
-            }
+      
             .StartBtnContainer{
                 width:100vw;
-                padding:10px;
-                border-radius: 0px;
+                height:fit-content;
+                /* padding:5px; */
+                /* border-radius: 0px; */
                 position:fixed;
                 bottom:0;
+                border-right: none;
                
+            }
+            button.start-pract-btn{
+                height:fit-content;
+                width:100%;
+                padding:7px;
+                border-radius: 0px;
             }
             .ListContainer{
                 overflow-y: scroll;
                 height:fit-content;
                 width:100vw;
+            }
+          
+            ul.word-list{
+                height: fit-content;;
+                margin:auto;
+                margin-bottom:75px;
+                width:100vw;
+                padding:0;
+                overflow: auto;
             }
     }

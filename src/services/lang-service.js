@@ -29,6 +29,22 @@ const LangService ={
           ) 
         
 
+  },
+    
+  getWordById(id) {
+    return fetch(`${config.API_ENDPOINT}/language/word/${id}`, {
+      method: 'GET',
+          headers: {
+            'authorization': `Bearer ${TokenService.getAuthToken()}`,
+          },
+        })
+      .then(res =>
+          
+          (!res.ok)
+            ? res.json().then(e => Promise.reject(e))
+            : res.json()
+        ) 
+      
     },
 
     postGuess(guess) {
