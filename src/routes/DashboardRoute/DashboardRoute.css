@@ -94,7 +94,11 @@ button.start-pract-btn:hover{
     cursor: pointer;
 }
 
-
+button.add-word-btn{
+    background-color: yellow;
+    text-align:center;
+    /* display: inline-block; */
+}
 
 
 .ListContainer{
@@ -142,7 +146,7 @@ h3.list-msg{
                 width:90vw;
                 margin: auto;
                 padding:20px;
-                margin-bottom:20px;
+              
                 margin-top:20px;
                 border-right: none;
             }
@@ -177,6 +181,7 @@ h3.list-msg{
                 height:fit-content;
                 width:100vw;
             }
+          
             ul.word-list{
                 height: fit-content;;
                 margin:auto;

@@ -5,7 +5,7 @@ import { Input, Label } from '../../components/Form/Form'
 import Button from '../../components/Button/Button' 
 
 export default class AddWordRoute extends Component {
-
+// make sure to add a back button in case there is no submission
     handleChange = e => {
         this.setState({
             [e.target.name]:e.target.value
@@ -39,7 +39,9 @@ export default class AddWordRoute extends Component {
                         onChange={this.handleChange}
                     />
                     <Button type='submit'> Add </Button>
-            </form>
+                </form>
+                
+                <h1>This feature will be coming soon!</h1>
         </div>
     )
 }

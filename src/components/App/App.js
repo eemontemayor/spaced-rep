@@ -9,6 +9,7 @@ import DashboardRoute from '../../routes/DashboardRoute/DashboardRoute'
 import LearningRoute from '../../routes/LearningRoute/LearningRoute'
 import NotFoundRoute from '../../routes/NotFoundRoute/NotFoundRoute'
 import AddWordRoute from '../../routes/AddWordRoute/AddWordRoute.js'
+import EditWordRoute from '../../routes/EditWordRoute/EditWordRoute.js'
 import './App.css'
 
 export default class App extends Component {
@@ -44,6 +45,10 @@ export default class App extends Component {
                <PrivateRoute
               path={'/add-word'}
               component={AddWordRoute}
+            />
+            <PrivateRoute
+              path={'/edit-word/:id'}
+              component={EditWordRoute}
             />
             <PublicOnlyRoute
               path={'/register'}

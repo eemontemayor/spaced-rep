@@ -11,6 +11,11 @@ li{
     border-radius: 8px;
     padding:12px;
     box-shadow: 10px 10px 6px -1px #8BA0AC;
+    transition: all 1s ease;
+}
+.word-card:hover{
+    transform: scale(1.1);
+    cursor: pointer;
 }
 .word-card h4{
     margin-top:3px;
