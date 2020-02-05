@@ -6,10 +6,14 @@ export default class TotalScore extends Component {
     render() {
         console.log(this.props)
         return(
-            <>   
+            <>  
                 <h3 className='total-score'>
-                Total correct answers: {this.context.totalScore}       
+            Total correct answers: 
                 </h3>
+                 <h2 className='score-num'>
+                    
+                    {this.context.totalScore}       
+                    </h2>
             </>
         )
     }
