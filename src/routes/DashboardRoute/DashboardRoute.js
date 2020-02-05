@@ -32,12 +32,17 @@ class DashboardRoute extends Component {
     let wordList = words.map((item, index) => {
       return (
         <li key={index}>
+          <Link to={`/word/${item.id}`}>
+          <div className="word-card">
           <Word
-            id= {item.id}
+            id={item.id}
             original={item.original}
             correct_count={item.correct_count}
             incorrect_count={item.incorrect_count}
-          />
+              />
+                      </div>
+
+            </Link>
         </li>
       );
     });
