@@ -75,6 +75,7 @@ class DashboardRoute extends Component {
             <div className="ListContainer">
               <h3 className="list-msg">Words to practice</h3>
                 <ul className="word-list">
+                  {wordList}
               <li className='word-card'>
 
               <Link to={'/add-word'} >
@@ -85,7 +86,6 @@ class DashboardRoute extends Component {
                   </button>
                 </Link>
               </li>
-                  {wordList}
                 </ul>
             </div>
           </div>
