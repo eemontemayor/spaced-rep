@@ -33,14 +33,14 @@ class DashboardRoute extends Component {
       return (
         <li key={index}>
           <Link to={`/word/${item.id}`}>
-          <div className="word-card">
+          
           <Word
             id={item.id}
             original={item.original}
             correct_count={item.correct_count}
             incorrect_count={item.incorrect_count}
               />
-                      </div>
+                
 
             </Link>
         </li>
@@ -72,8 +72,9 @@ class DashboardRoute extends Component {
             <div className='StartBtnContainer'>
 
               <Link to={`/learn`}>
-            <button className="start-pract-btn">
-                <p>Start practicing</p>
+                <button className="start-pract-btn">
+                  <FontAwesomeIcon icon='play-circle' size='6x'><p>Start practicing</p></FontAwesomeIcon>
+                
             </button>
               </Link>
             </div>
@@ -86,7 +87,7 @@ class DashboardRoute extends Component {
               <Link to={'/add-word'} >
                   <button className='add-word-btn'>
                     <Tooltip message='add a word to list'>
-                      <FontAwesomeIcon icon='pen'/>
+                      <FontAwesomeIcon size='lg' icon='plus'/>
                     </Tooltip>
                   </button>
                 </Link>

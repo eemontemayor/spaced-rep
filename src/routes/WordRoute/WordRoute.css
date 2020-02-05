@@ -1,6 +1,17 @@
-.word-card-large{
-    width:70vw;
-    height:70vh;
-    background-color: pink;
+.word-card-page{
+    width:95vw;
+    height:95vh;
+    /* background-color: pink; */
     margin:auto;
+}
+.back-btn{
+    background:none;
+    border:none;
+    position:relative;
+    top:50px;
+    bottom:50px;
+}
+.back-btn:hover{
+    cursor:pointer;
+    
 }
