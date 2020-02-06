@@ -3,8 +3,19 @@ import React, { Component } from 'react'
 import './AddWordRoute.css'
 import { Input, Label } from '../../components/Form/Form'
 import Button from '../../components/Button/Button' 
+import LangService from '../../services/lang-service'
 
 export default class AddWordRoute extends Component {
+    state = {
+        original: '',
+        translation: '',
+        memory_value: '',
+        
+        language:'',
+        languageId:'',    
+        formValid: false,
+        validationMessages: {}
+    }
 // make sure to add a back button in case there is no submission
     handleChange = e => {
         this.setState({
@@ -17,10 +28,17 @@ export default class AddWordRoute extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault()
+        let word = {}
         // trimming and form validation happens here
         // make a lang service post call here
-
+        LangService.postNewWord(word)
+            .then(res => {
+            
+        })
     }
+
+   
+
     render() {
         
         return (
@@ -30,11 +48,11 @@ export default class AddWordRoute extends Component {
             <Label htmlFor='new-word-input'>
 
             </Label>
-                    <Input name='new_word_original'
+                    <Input name='original'
                         required
                         onChange={this.handleChange}
                     />
-                    <Input name='new_word_translation'
+                    <Input name='translation'
                         required
                         onChange={this.handleChange}
                     />

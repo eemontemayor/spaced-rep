@@ -48,7 +48,7 @@ class DashboardRoute extends Component {
     });
     return wordList;
   };
-
+  
   render() {
     let wordList = this.generateWordList(this.state.words);
 

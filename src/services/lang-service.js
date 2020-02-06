@@ -30,7 +30,25 @@ const LangService ={
         
 
   },
-    
+  postNewWord(word) {
+    return fetch(`${config.API_ENDPOINT}/language/word`, {
+      method: 'POST',
+      headers: {
+        'authorization': `Bearer ${TokenService.getAuthToken()}`,
+        'content-type': 'application/json',
+      },
+      body: JSON.stringify({
+        word
+      })
+    })
+      .then(res => 
+        (!res.ok)
+          ? res.json().then(e => Promise.reject(e))
+          : res.json()
+      )
+  },
+
+  
   getWordById(id) {
     return fetch(`${config.API_ENDPOINT}/language/word/${id}`, {
       method: 'GET',
