@@ -1,40 +1,62 @@
 .AddWord-form {
-    background-color: #797878;
-    color: #dedede;
-    padding: 16px;
-    max-width: 332px;
+    background-color: floralwhite;
+position:relative;
+    margin:auto;
+    height:auto;
+    min-height:50vh;
+    min-width:500px;
+    width:fit-content;
+    border:1px solid #8BA0AC;
+    border-radius: 8px;
+    padding:10px 20px 10px 20px;
+    box-shadow: 10px 10px 6px -1px #8BA0AC;
   }
   
   .AddWord-form label {
     display: block;
+    text-align: center;
     font-size: 16px;
     padding-bottom: 8px;
   }
   
-  .AddWord-form input,
-  .AddWord-form textarea,
-  .AddWord-form select {
+  .AddWord-form input{
+  margin:auto;
     font-size: 14px;
     padding: 8px;
     width: 300px;
   }
-  
-  .AddWord-form select {
-    height: 33px;
+  input #original-word-input{
+      border-bottom:1px solid grey;
   }
   
-  .AddWord-form > .field {
-    margin-bottom: 16px;
+  .field-original, .field-translation {
+    text-align:center;
+      margin:auto;
+    margin-bottom: 75px;
+    margin-top:75px;
   }
+
+  .field-original{
+      padding-bottom:50px;
+      border-bottom: 1px solid grey;
+  }
+  .field-translation{
+    border-top: 1px solid grey;
+    padding-top:50px;
+  }
+
   .AddWord-form > .buttons {
     margin-top: 26px;
   }
   
   .AddWord-form button {
-    background-color: #010d1e;
+      position: absolute;
+      bottom:5px;
+      right:5px;
+    background-color: green;
     border-radius: 4px;
     border: 0;
-    color: #cacaca;
+    color:white;
     display: block;
     font-size: 18px;
     font-weight: bold;
@@ -43,7 +65,8 @@
     text-decoration: none;
   }
   .AddWord-form button[type="submit"]:hover {
-    background-color: #29862e;
+    background-color: #0dc016;
     color: white;
+    cursor:pointer;
   }
   
