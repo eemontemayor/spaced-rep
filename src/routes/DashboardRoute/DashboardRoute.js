@@ -15,15 +15,18 @@ class DashboardRoute extends Component {
     nextWordId: null,
     totalScore: null
   };
+static contextType=LangContext
 
   componentDidMount() {
     LangService.getUserLanguage().then(res => {
-      console.log(res);
+      console.log('here');
       this.setState({
         languageId: res.language.id,
         language: res.language.name,
         totalScore: res.language.total_score,
         words: [...res.words]
+      }, () => {
+          console.log(this.state)
       });
     });
   }
@@ -52,15 +55,10 @@ class DashboardRoute extends Component {
   render() {
     let wordList = this.generateWordList(this.state.words);
 
-    const value = {
-      languageId: this.state.languageId,
-      language: this.state.language,
-      words: this.state.words,
-      totalScore: this.state.totalScore
-    };
+    
 
     return (
-      <LangContext.Provider value={value} role="main">
+   
         <main>
           <div className="DashboardPage">
             <div className="NameContainer">
@@ -96,7 +94,7 @@ class DashboardRoute extends Component {
             </div>
           </div>
         </main>
-      </LangContext.Provider>
+    
     );
   }
 }

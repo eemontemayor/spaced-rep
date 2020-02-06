@@ -1,11 +1,20 @@
 import React, { Component } from 'react'
-// import AddWord from '../../components/AddWord/AddWord'
+import AddWordForm from '../../components/AddWordForm/AddWordForm'
 import './AddWordRoute.css'
 import { Input, Label } from '../../components/Form/Form'
 import Button from '../../components/Button/Button' 
 import LangService from '../../services/lang-service'
-
+import LangContext from '../../contexts/LangContext'
 export default class AddWordRoute extends Component {
+     
+    static defaultProps = {
+    history: {
+      push: () => { }
+    },
+    }
+    EnglishInput = React.createRef;
+    static contextType = LangContext
+    
     state = {
         original: '',
         translation: '',
@@ -16,6 +25,11 @@ export default class AddWordRoute extends Component {
         formValid: false,
         validationMessages: {}
     }
+
+    componentDidMount() {
+        console.log(this.context, '<------------context')
+    }
+
 // make sure to add a back button in case there is no submission
     handleChange = e => {
         this.setState({
@@ -33,34 +47,42 @@ export default class AddWordRoute extends Component {
         // make a lang service post call here
         LangService.postNewWord(word)
             .then(res => {
-            
+            this.props.history.push('/')
         })
     }
 
    
 
     render() {
-        
+        console.log(this.context)
+        let userLanguage = this.context.language
         return (
-            <div>
-            <form onSubmit={this.handleSubmit}>
+            <section className='AddNewWord'> 
+                <h2>Add a new word to your list</h2>
+            <AddWordForm onSubmit={this.handleSubmit}>
 
-            <Label htmlFor='new-word-input'>
-
-            </Label>
-                    <Input name='original'
-                        required
-                        onChange={this.handleChange}
-                    />
+            <Label htmlFor='translation-word-input'>
+                    English:
+                    </Label>
                     <Input name='translation'
+                        id='translation-word-input'
                         required
                         onChange={this.handleChange}
                     />
-                    <Button type='submit'> Add </Button>
-                </form>
+                      <Label htmlFor='original-word-input'>
+                {userLanguage}
+                        </Label>
+                    <Input name='original'
+                        id='original-word-input'
+                        required
+                        onChange={this.handleChange}
+                    />
+                 
+                    <Button type='submit' onClick={(e)=>{}} > Add </Button>
+                </AddWordForm>
                 
-                <h1>This feature will be coming soon!</h1>
-        </div>
+              
+        </section>
     )
 }
 }

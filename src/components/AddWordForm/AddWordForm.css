@@ -1,0 +1,49 @@
+.AddWord-form {
+    background-color: #797878;
+    color: #dedede;
+    padding: 16px;
+    max-width: 332px;
+  }
+  
+  .AddWord-form label {
+    display: block;
+    font-size: 16px;
+    padding-bottom: 8px;
+  }
+  
+  .AddWord-form input,
+  .AddWord-form textarea,
+  .AddWord-form select {
+    font-size: 14px;
+    padding: 8px;
+    width: 300px;
+  }
+  
+  .AddWord-form select {
+    height: 33px;
+  }
+  
+  .AddWord-form > .field {
+    margin-bottom: 16px;
+  }
+  .AddWord-form > .buttons {
+    margin-top: 26px;
+  }
+  
+  .AddWord-form button {
+    background-color: #010d1e;
+    border-radius: 4px;
+    border: 0;
+    color: #cacaca;
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 8px;
+    text-align: center;
+    text-decoration: none;
+  }
+  .AddWord-form button[type="submit"]:hover {
+    background-color: #29862e;
+    color: white;
+  }
+  
