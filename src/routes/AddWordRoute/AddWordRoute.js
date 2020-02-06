@@ -51,22 +51,26 @@ export default class AddWordRoute extends Component {
     handleSubmit = (e) => {
         e.preventDefault()
         let word = {
-            id:'',
+          
             language_id: this.context.languageId,
-            original:'',
-            translation:'',
-            next:''
+            original:this.OriginalInput,
+            translation: this.TranslationInput,
+            memory_value:3,
+           
            
         }
         // trimming and form validation happens here
         // make a lang service post call here
-        LangService.postNewWord(word)
-            .then(res => {
-            this.props.history.push('/')
-            })
-            .catch(error => {
-                console.error({ error })
-              })
+        alert('this feature will be coming soon')
+
+
+        // LangService.postNewWord(word)
+        //     .then(res => {
+        //     this.props.history.push('/')
+        //     })
+        //     .catch(error => {
+        //         console.error({ error })
+        //       })
     }
 
    
