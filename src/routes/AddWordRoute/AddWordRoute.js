@@ -3,6 +3,7 @@ import AddWordForm from '../../components/AddWordForm/AddWordForm'
 import './AddWordRoute.css'
 import { Input, Label } from '../../components/Form/Form'
 import Button from '../../components/Button/Button' 
+import { FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import LangService from '../../services/lang-service'
 import LangContext from '../../contexts/LangContext'
 export default class AddWordRoute extends Component {
@@ -32,6 +33,7 @@ export default class AddWordRoute extends Component {
         this.TranslationInput.current.focus() 
     }
 
+    
 // make sure to add a back button in case there is no submission
     handleChange = e => {
         this.setState({
@@ -55,7 +57,7 @@ export default class AddWordRoute extends Component {
             language_id: this.context.languageId,
             original:this.OriginalInput,
             translation: this.TranslationInput,
-            memory_value:3,
+            memory_value:1,
            
            
         }
@@ -72,15 +74,18 @@ export default class AddWordRoute extends Component {
         //         console.error({ error })
         //       })
     }
-
+    goBack = () => {
+        this.props.history.push('/')
+    }
    
 
     render() {
         console.log(this.context)
         let userLanguage = this.context.language
-        return (
+        return (<div>
+ <button  className='back-btn'  type='click' onClick={this.goBack}    >      <FontAwesomeIcon size="6x" icon='chevron-circle-left'/></button>
             <section className='AddNewWord'> 
-                <h2>Add a new word to your list</h2>
+                <h2 className='add-word-msg'>Add a new word to your list</h2>
             <AddWordForm onSubmit={this.handleSubmit}>
                     <div className='field-original'>
                         
@@ -113,6 +118,7 @@ export default class AddWordRoute extends Component {
                 
               
         </section>
+                        </div>
     )
 }
 }

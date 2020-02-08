@@ -30,6 +30,21 @@ const LangService ={
         
 
   },
+  getWordById(id) {
+    return fetch(`${config.API_ENDPOINT}/language/word/${id}`, {
+      method: 'GET',
+          headers: {
+            'authorization': `Bearer ${TokenService.getAuthToken()}`,
+          },
+        })
+      .then(res =>
+          
+          (!res.ok)
+            ? res.json().then(e => Promise.reject(e))
+            : res.json()
+        ) 
+      
+    },
   postNewWord(word) {
     return fetch(`${config.API_ENDPOINT}/language/word`, {
       method: 'POST',
@@ -49,21 +64,6 @@ const LangService ={
   },
 
   
-  getWordById(id) {
-    return fetch(`${config.API_ENDPOINT}/language/word/${id}`, {
-      method: 'GET',
-          headers: {
-            'authorization': `Bearer ${TokenService.getAuthToken()}`,
-          },
-        })
-      .then(res =>
-          
-          (!res.ok)
-            ? res.json().then(e => Promise.reject(e))
-            : res.json()
-        ) 
-      
-    },
 
     postGuess(guess) {
       return fetch(`${config.API_ENDPOINT}/language/guess`, {
@@ -81,6 +81,23 @@ const LangService ={
             ? res.json().then(e => Promise.reject(e))
             : res.json()
         )
+  },
+    
+  deleteWordById(id) {
+    return fetch(`${config.API_ENDPOINT}/language/word/${id}`, {
+      method: 'DELETE',
+          headers: {
+            'authorization': `Bearer ${TokenService.getAuthToken()}`,
+         
+      },
+     
+        })
+        .then(res =>
+          
+          (!res.ok)
+            ? res.json().then(e => Promise.reject(e))
+            : res.json()
+        ) 
     }
 
 }

@@ -35,6 +35,21 @@ export default class App extends Component {
       });
     });
   }
+
+
+
+  handleDeleteWord = (id) => {
+    LangService.deleteWordById(id)
+      .then(res => {
+        console.log(res)
+    })
+  }
+
+
+
+
+
+
   render() {
     const value = {
       languageId: this.state.languageId,
