@@ -1,4 +1,4 @@
-import React,{Component} from 'react';
+import React from 'react';
 import './Word.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import LangService from '../../services/lang-service';
