@@ -7,7 +7,7 @@ export default function Word(props){
     function renderIcons() {
         if (props.translation) {
             return <div className='icon-container'>
-                <button className='icon-btn-trash' type='click' onClick={() =>{LangService.deleteWordById(props.id)} }>
+                <button className='icon-btn-trash' type='click' onClick={() =>{props.onDelete(props.id)} }>
                             <FontAwesomeIcon size="lg" icon='trash-alt' />
                         </button>
                         <button className='icon-btn-pen' type='click' onClick={() => {alert('feature coming soon!')}}>

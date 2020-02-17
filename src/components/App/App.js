@@ -38,14 +38,6 @@ export default class App extends Component {
 
 
 
-  handleDeleteWord = (id) => {
-    LangService.deleteWordById(id)
-      .then(res => {
-        console.log(res)
-    })
-  }
-
-
 
 
 
@@ -55,7 +47,8 @@ export default class App extends Component {
       languageId: this.state.languageId,
       language: this.state.language,
       words: this.state.words,
-      totalScore: this.state.totalScore
+      totalScore: this.state.totalScore,
+     
     };
     const { hasError } = this.state
     return (

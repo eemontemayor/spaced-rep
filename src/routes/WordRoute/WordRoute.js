@@ -20,10 +20,10 @@ export default class WordRoute extends React.Component{
     componentDidMount() {
         //Lang service goes here
         let wordId = this.props.match.params.id
-        console.log('WordRoute id',wordId)
+        
         LangService.getWordById(wordId)
             .then(res => {
-                console.log('here', res.word)
+              
                 this.setState({
                    word:res.word
                 })
@@ -34,6 +34,15 @@ export default class WordRoute extends React.Component{
     goBack = () => {
         this.props.history.push('/')
     }
+
+    handleDeleteWord = (id) => {
+        LangService.deleteWordById(id)
+          .then(res => {
+            this.goBack()
+        })
+      }
+    
+
     render() {
      let word = this.state.word
 return (
@@ -45,6 +54,7 @@ return (
     original={word.original}
     correct_count={word.correct_count}
     incorrect_count={word.incorrect_count}
+    onDelete={this.handleDeleteWord}
     />
   
 </div>
