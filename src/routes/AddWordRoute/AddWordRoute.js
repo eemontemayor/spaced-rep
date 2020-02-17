@@ -6,6 +6,11 @@ import Button from '../../components/Button/Button'
 import { FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import LangService from '../../services/lang-service'
 import LangContext from '../../contexts/LangContext'
+import Translations from '../../components/Translations/Translations'
+import Tooltip from '../../components/Tooltip/Tooltip'
+
+
+
 export default class AddWordRoute extends Component {
      
     static defaultProps = {
@@ -22,8 +27,6 @@ export default class AddWordRoute extends Component {
     state = {
         original: '',
         translation: '',
-       
-         
         originalValid: false,
         translationValid:false,
         validationMessages: {}
@@ -34,14 +37,18 @@ export default class AddWordRoute extends Component {
     }
 
     
-// make sure to add a back button in case there is no submission
+
     handleChange = e => {
         this.setState({
             [e.target.name]:e.target.value
         }, () => {
-                //make a lang service call here to a 3rd party dictionary api
+                
                 console.log(this.state)
         })
+    }
+
+    goBack = () => {
+        this.props.history.push('/')
     }
 
     setNewWord = (original, translation) => {
@@ -52,6 +59,10 @@ export default class AddWordRoute extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault()
+
+
+
+
         let word = {
           
             language_id: this.context.languageId,
@@ -74,19 +85,44 @@ export default class AddWordRoute extends Component {
         //         console.error({ error })
         //       })
     }
-    goBack = () => {
-        this.props.history.push('/')
+
+
+
+
+
+    handleSearchSubmit = (e) => {
+        e.preventDefault()
+        console.log(this.state.translation)
+        console.log(this.TranslationInput.value,'TransInput')
+        LangService.getTranslations(this.state.translation)
+        .then(res => {
+            console.log(res)    
+            this.setState({
+                results:res.body.matches
+            })
+        })
     }
+
+
+
+  
    
 
     render() {
         console.log(this.context)
+
         let userLanguage = this.context.language
-        return (<div>
- <button  className='back-btn'  type='click' onClick={this.goBack}    >      <FontAwesomeIcon size="6x" icon='chevron-circle-left'/></button>
+        return (
+        <div>
+            <button className='back-btn' type='click' onClick={this.goBack}>
+                <FontAwesomeIcon size="6x" icon='chevron-circle-left' />
+            </button>
+
             <section className='AddNewWord'> 
                 <h2 className='add-word-msg'>Add a new word to your list</h2>
-            <AddWordForm onSubmit={this.handleSubmit}>
+                <AddWordForm
+                    onSubmit={this.handleSubmit}
+                >
                     <div className='field-original'>
                         
 
@@ -98,7 +134,8 @@ export default class AddWordRoute extends Component {
                         id='original-word-input'
                         required
                         ref={this.OriginalInput}
-                        // onChange={this.handleChange}
+                        onChange={this.handleChange}
+                      disabled
                         />
                     </div>
                     <div className='field-translation'>
@@ -110,14 +147,22 @@ export default class AddWordRoute extends Component {
                         id='translation-word-input'
                         required
                         ref={this.TranslationInput}
-                        // onChange={this.handleChange}
+                        onChange={this.handleChange}
                         />
-                        </div>
+                    </div>
+                
                     <Button type='submit' onClick={(e)=>{}} > Submit </Button>
                 </AddWordForm>
                 
               
-        </section>
+            </section>
+            <div className='translation-container'>
+                    <Button className='search-btn' type='click' onClick={this.handleSearchSubmit}><Tooltip message='search for translations'>
+                      <FontAwesomeIcon size='lg' icon='search' />
+                    </Tooltip></Button>
+
+            {this.state.results && <Translations className='trans-results'results={this.state.results}string={this.state.searchStr}/> }
+                    </div>
                         </div>
     )
 }

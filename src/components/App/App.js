@@ -44,11 +44,14 @@ export default class App extends Component {
   
   // make a landing page that explains... and add a trouble-free demo button
 
-  // re - seed database so it can handle words with accents
   //------------------------- deploy ------
+  
+  
+  
   //add Word = add validation func
-              // =  search through snip its stuff or some other dictionary api
-              // = make sure adding words with accents is not a problem
+  // =  search through snip its stuff or some other dictionary api
+  // re - seed database so it can handle words with accents
+            
            //   add a pop up card when delete or post is successful to notify user
 //===========================================
 
