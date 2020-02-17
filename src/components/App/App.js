@@ -38,7 +38,13 @@ export default class App extends Component {
 
 
 
-
+//TO-DO
+  // deleteWord = add a pop up card when delete is successful to notify user
+    //            = think bout how total score is affected or should be affected
+  
+  //add Word = add validation func
+              // =  search through snip its stuff or some other dictionary api
+              // = make sure adding words with accents is not a problem
 
 
 

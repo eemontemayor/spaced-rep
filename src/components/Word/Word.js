@@ -1,7 +1,7 @@
 import React from 'react';
 import './Word.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import LangService from '../../services/lang-service';
+
 
 export default function Word(props){
     function renderIcons() {
