@@ -85,20 +85,16 @@ const LangService ={
     
   deleteWordById(id) {
     return fetch(`${config.API_ENDPOINT}/language/word/${id}`, {
-      method: 'DELETE',
-          headers: {
-            'authorization': `Bearer ${TokenService.getAuthToken()}`,
-         
-      },
-     
-        })
+        method: 'DELETE',
+            headers: {
+              'authorization': `Bearer ${TokenService.getAuthToken()}`,
+          
+        },
+      })
       .then(res => {
-     
         if (!res.ok) {
-
           throw new Error()
         }
-       
       }) 
     }
 
