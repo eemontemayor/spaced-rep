@@ -85,7 +85,8 @@ button.icon-btn-pen:hover{
 
     }
 button.icon-btn-trash{
-    background-color:none;
+    position: absolute;
+    left:0;
     border:none;
 }
 button.icon-btn-trash:hover{
@@ -101,5 +102,13 @@ button.icon-btn-trash:hover{
         padding:10px;
     }
 
-
+    .word-card-large{
+        position:relative;
+        background-color: floralwhite;
+        margin:auto;
+    height:auto;
+        min-height:50%;
+        width:100vw;
+      
+    }
 }
