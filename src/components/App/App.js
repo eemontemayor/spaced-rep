@@ -39,10 +39,10 @@ export default class App extends Component {
 //===========================================
 
 //TO-DO
-  // deleteWord 
-    //            = think bout how total score is affected or should be affected
   
   // make a landing page that explains... and add a trouble-free demo button
+
+  //fix mobile
 
   //------------------------- deploy ------
   

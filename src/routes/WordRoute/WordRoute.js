@@ -47,7 +47,7 @@ export default class WordRoute extends React.Component{
      let word = this.state.word
 return (
     <div className='word-card-page'>
-        <button  className='back-btn'  type='click' onClick={this.goBack}    >      <FontAwesomeIcon size="6x" icon='chevron-circle-left'/></button>
+        <button  className='back-btn'  type='click' onClick={this.goBack}    >      <FontAwesomeIcon size="4x" icon='chevron-circle-left'/></button>
         <Word
     id={word.id}
     translation={word.translation}

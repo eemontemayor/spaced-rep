@@ -9,9 +9,20 @@
     border:none;
     position:relative;
     top:50px;
-    bottom:50px;
+    /* bottom:50px; */
 }
 .back-btn:hover{
     cursor:pointer;
     
+}
+
+
+@media only screen and (max-width: 375px) {
+
+
+    
+  
+    button.back-btn{
+        top:15px;
+    } 
 }

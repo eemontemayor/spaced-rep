@@ -101,14 +101,15 @@ button.icon-btn-trash:hover{
         margin-bottom:15px;
         padding:10px;
     }
-
+  
     .word-card-large{
         position:relative;
         background-color: floralwhite;
         margin:auto;
     height:auto;
         min-height:50%;
-        width:100vw;
+        min-width:90vw;
+        margin-top:50px;
       
     }
 }
