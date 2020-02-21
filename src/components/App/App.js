@@ -36,14 +36,34 @@ export default class App extends Component {
     });
   }
 
+
+  handleAddWord = (word) => {
+    this.setState({
+      words: [
+        ...this.state.words,
+        word
+      ]
+    }, () => {
+      console.log('after add word')
+        console.log(this.state.words)
+    })
+  }
+  handleDeleteWord = (wordId) => {
+    this.setState({
+      words:this.state.words.filter(word => word.id !== wordId)
+    }, () => {
+      console.log('after delete word')
+      console.log(this.state.words)
+    })
+  }
 //===========================================
 
 //TO-DO
   
-  // make a landing page that explains... and add a trouble-free demo button
+  // make a landing page that explains... 
+  //add a trouble-free demo button
 
-  //fix mobile
-
+  
   //------------------------- deploy ------
   
   
@@ -62,6 +82,8 @@ export default class App extends Component {
       language: this.state.language,
       words: this.state.words,
       totalScore: this.state.totalScore,
+      addWord: this.handleAddWord,
+      delWord:this.handleDeleteWord,
      
     };
     const { hasError } = this.state

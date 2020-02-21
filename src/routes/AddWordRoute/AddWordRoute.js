@@ -51,60 +51,87 @@ export default class AddWordRoute extends Component {
         this.props.history.push('/')
     }
 
-    setNewWord = (original, translation) => {
-        
-    }
+
 
 
 
     handleSubmit = (e) => {
         e.preventDefault()
 
-
-
-
-        let word = {
-          
+        
+        
+        let newWord = {
+            
+            original:this.state.original,
+            translation: this.state.translation,
             language_id: this.context.languageId,
-            original:this.OriginalInput,
-            translation: this.TranslationInput,
-            memory_value:1,
-           
-           
+            
+            
         }
-        // trimming and form validation happens here
-        // make a lang service post call here
-        alert('this feature will be coming soon')
-
-
-        // LangService.postNewWord(word)
-        //     .then(res => {
-        //     this.props.history.push('/')
-        //     })
-        //     .catch(error => {
-        //         console.error({ error })
-        //       })
+        console.log(newWord,'<=== new word')
+    
+        LangService.postNewWord(newWord)
+            .then(word => {
+                console.log(word)
+            // this.context.addWord(word)
+            // this.props.history.push(`/word/${word.id}`)
+            })
+            .catch(error => {
+                console.error({ error })
+              })
     }
 
 
 
 
 
-    handleSearchSubmit = (e) => {
-        e.preventDefault()
-        console.log(this.state.translation)
-        console.log(this.TranslationInput.value,'TransInput')
-        LangService.getTranslations(this.state.translation)
-        .then(res => {
-            console.log(res)    
-            this.setState({
-                results:res.body.matches
-            })
+    // handleSearchSubmit = (e) => {
+    //     e.preventDefault()
+    //     console.log(this.state.translation)
+    //     console.log(this.TranslationInput.value,'TransInput')
+    //     LangService.getTranslations(this.state.translation)
+    //     .then(res => {
+    //         console.log(res)    
+    //         this.setState({
+    //             results:res.body.matches
+    //         })
+    //     })
+    // }
+
+    setWord = (orig, trans) => {
+
+        console.log(orig, trans,"<--")
+
+        let original = orig.trim()
+        let translation = trans.trim()
+        this.setState({original,translation},()=>this.validateWord(original,translation))
+    }
+
+    validateWord = (original, translation) => {
+        const validationMessages = { ...this.state.validationMessages }
+        let originalValid = true;
+        let translationValid = true;
+
+        if (original.length < 2 || original.length > 20) {
+            validationMessages.original = 'Spanish word must be at least 2 characters long'
+            originalValid = false
+            console.log(' spanish word error if less than two')
+            throw Error
+        } else if (translation.length < 2 || translation.length > 20) {
+            validationMessages.translation = 'English word must be at least 2 characters long'
+            translationValid = false
+            console.log('English word error if less than two')
+            throw Error
+        } else {
+            this.setState({validationMessages, originalValid, translationValid}, this.validateForm);
+
+        }
+    }
+    validateForm = () => {
+        this.setState({
+            formValid: this.state.originalValid && this.state.translationValid
         })
     }
-
-
-
   
    
 
@@ -134,8 +161,8 @@ export default class AddWordRoute extends Component {
                         id='original-word-input'
                         required
                         ref={this.OriginalInput}
-                        onChange={this.handleChange}
-                      disabled
+                        // onChange={this.handleChange}
+                        
                         />
                     </div>
                     <div className='field-translation'>
@@ -145,24 +172,24 @@ export default class AddWordRoute extends Component {
                     </Label>
                     <Input name='translation'
                         id='translation-word-input'
-                        required
                         ref={this.TranslationInput}
-                        onChange={this.handleChange}
+                        // onChange={this.handleChange}
+                        required
                         />
                     </div>
                 
-                    <Button type='submit' onClick={(e)=>{}} > Submit </Button>
+                        <Button type='submit' onClick={(e) =>this.setWord(this.OriginalInput.current.value, this.TranslationInput.current.value)} > Submit </Button>
                 </AddWordForm>
                 
               
             </section>
-            <div className='translation-container'>
+            {/* <div className='translation-container'>
                     <Button className='search-btn' type='click' onClick={this.handleSearchSubmit}><Tooltip message='search for translations'>
                       <FontAwesomeIcon size='lg' icon='search' />
                     </Tooltip></Button>
 
             {this.state.results && <Translations className='trans-results'results={this.state.results}string={this.state.searchStr}/> }
-                    </div>
+                    </div> */}
                         </div>
     )
 }
