@@ -74,7 +74,7 @@ export default class AddWordRoute extends Component {
             .then(word => {
                 console.log(word)
             // this.context.addWord(word)
-            // this.props.history.push(`/word/${word.id}`)
+            this.props.history.push(`/word/${word.id}`)
             })
             .catch(error => {
                 console.error({ error })
