@@ -56,24 +56,7 @@ export default class App extends Component {
       console.log(this.state.words)
     })
   }
-//===========================================
 
-//TO-DO
-  
-  // make a landing page that explains... 
-  //add a trouble-free demo button
-
-  
-  //------------------------- deploy ------
-  
-  
-  
-  //add Word = add validation func
-  // =  search through snip its stuff or some other dictionary api
-  // re - seed database so it can handle words with accents
-            
-           //   add a pop up card when delete or post is successful to notify user
-//===========================================
 
 
   render() {
