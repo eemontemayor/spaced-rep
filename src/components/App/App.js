@@ -11,6 +11,8 @@ import NotFoundRoute from '../../routes/NotFoundRoute/NotFoundRoute'
 import AddWordRoute from '../../routes/AddWordRoute/AddWordRoute.js'
 import WordRoute from '../../routes/WordRoute/WordRoute.js'
 import './App.css'
+import LangContext from "../../contexts/LangContext";
+import LangService from "../../services/lang-service";
 
 export default class App extends Component {
   state = { hasError: false }
@@ -20,10 +22,58 @@ export default class App extends Component {
     return { hasError: true }
   }
 
+  componentDidMount() {
+    LangService.getUserLanguage().then(res => {
+      // console.log(res);
+      this.setState({
+        languageId: res.language.id,
+        language: res.language.name,
+        totalScore: res.language.total_score,
+        words: [...res.words]
+      }, () => {
+          console.log(this.state)
+      });
+    });
+  }
+
+
+  handleAddWord = (word) => {
+    this.setState({
+      words: [
+        ...this.state.words,
+        word
+      ]
+    }, () => {
+      console.log('after add word')
+        console.log(this.state.words)
+    })
+  }
+  handleDeleteWord = (wordId) => {
+    this.setState({
+      words:this.state.words.filter(word => word.id !== wordId)
+    }, () => {
+      console.log('after delete word')
+      console.log(this.state.words)
+    })
+  }
+
+
+
   render() {
+    const value = {
+      languageId: this.state.languageId,
+      language: this.state.language,
+      words: this.state.words,
+      totalScore: this.state.totalScore,
+      addWord: this.handleAddWord,
+      delWord:this.handleDeleteWord,
+     
+    };
     const { hasError } = this.state
     return (
       <div className='App'>
+              <LangContext.Provider value={value} role="main">
+
         <header className='App__Header'>
 
         <Header  />
@@ -63,6 +113,7 @@ export default class App extends Component {
             />
           </Switch>
         </main>
+        </LangContext.Provider>
       </div>
     );
   }

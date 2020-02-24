@@ -1,14 +1,19 @@
 import React from 'react';
 import './Word.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import Tooltip from '../Tooltip/Tooltip'
+
 
 export default function Word(props){
     function renderIcons() {
         if (props.translation) {
             return <div className='icon-container'>
-                        <button className='icon-btn-trash' type='click' onClick={() => {alert('feature coming soon!')}}>
-                            <FontAwesomeIcon size="lg" icon='trash-alt' />
-                        </button>
+                <button className='icon-btn-trash' type='click' onClick={() =>{props.onDelete(props.id)} }>
+                    <Tooltip message='Warning: this action may affect your total score.'>
+                    <FontAwesomeIcon size="lg" icon='trash-alt' />
+                    </Tooltip>          
+                    
+                </button>
                         <button className='icon-btn-pen' type='click' onClick={() => {alert('feature coming soon!')}}>
                             <FontAwesomeIcon size="lg" icon='pen' /> 
                         </button>

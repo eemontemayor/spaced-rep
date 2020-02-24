@@ -12,7 +12,7 @@ export default class TotalScore extends Component {
                 </h3>
                  <h2 className='score-num'>
                     
-                    {this.context.totalScore}       
+                    {this.props.score}       
                     </h2>
             </>
         )

@@ -1,0 +1,72 @@
+.AddWord-form {
+    background-color: floralwhite;
+position:relative;
+    margin:auto;
+    height:auto;
+    min-height:50vh;
+    min-width:500px;
+    width:fit-content;
+    border:1px solid #8BA0AC;
+    border-radius: 8px;
+    padding:10px 20px 10px 20px;
+    box-shadow: 10px 10px 6px -1px #8BA0AC;
+  }
+  
+  .AddWord-form label {
+    display: block;
+    text-align: center;
+    font-size: 16px;
+    padding-bottom: 8px;
+  }
+  
+  .AddWord-form input{
+  margin:auto;
+    font-size: 14px;
+    padding: 8px;
+    width: 300px;
+  }
+  input #original-word-input{
+      border-bottom:1px solid grey;
+  }
+  
+  .field-original, .field-translation {
+    text-align:center;
+      margin:auto;
+    margin-bottom: 75px;
+    margin-top:75px;
+  }
+
+  .field-original{
+      padding-bottom:50px;
+      border-bottom: 1px solid grey;
+  }
+  .field-translation{
+    border-top: 1px solid grey;
+    padding-top:50px;
+  }
+
+  .AddWord-form > .buttons {
+    margin-top: 26px;
+  }
+  
+  .AddWord-form button {
+      position: absolute;
+      bottom:5px;
+      right:5px;
+    background-color: green;
+    border-radius: 4px;
+    border: 0;
+    color:white;
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 8px;
+    text-align: center;
+    text-decoration: none;
+  }
+  .AddWord-form button[type="submit"]:hover {
+    background-color: #0dc016;
+    color: white;
+    cursor:pointer;
+  }
+  

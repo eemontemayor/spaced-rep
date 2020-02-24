@@ -15,6 +15,7 @@ class LearningRoute extends Component {
   GuessInput = React.createRef();
 
   componentDidMount() {
+    console.log(this.context,"<----context --LR--")
     LangService.getHeadWord().then(res => {
       console.log(res);
       for (const [key, value] of Object.entries(res)) {
