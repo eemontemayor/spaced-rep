@@ -13,6 +13,7 @@ import WordRoute from '../../routes/WordRoute/WordRoute.js'
 import './App.css'
 import LangContext from "../../contexts/LangContext";
 import LangService from "../../services/lang-service";
+import LandingPageRoute from '../../routes/LandingPageRoute/LandingPageRoute'
 
 export default class App extends Component {
   state = { hasError: false }
@@ -99,6 +100,10 @@ export default class App extends Component {
             <PrivateRoute
               path={'/word/:id'}
               component={WordRoute}
+              />
+                <PublicOnlyRoute
+              path={'/landing'}
+              component={LandingPageRoute}
             />
             <PublicOnlyRoute
               path={'/register'}

@@ -1,0 +1,125 @@
+.tutorial-container {
+    border: rgba(204, 74, 51, 0.849) ridge 4px;
+    box-shadow: 5px 5px 3px rgb(148, 148, 148);
+    border-radius: 10px;
+    width: 500px;
+    margin: auto;
+    margin-top: 150px;
+    padding: 5px;
+    padding-bottom: 50px;
+  }
+  
+  .onboard-header {
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+  
+  .tutorial-pics {
+    position: relative;
+    height: 150px;
+  }
+  
+  .tutorial-container img {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 200px;
+  
+    animation: pic-cycle infinite 10s linear;
+    opacity: 0;
+  }
+  
+  @keyframes pic-cycle {
+    0% {
+      opacity:0;
+    }
+    4% {
+      opacity:1;
+    }
+    16% {
+      opacity:1;
+    }
+    20% {
+      opacity:0;
+    }
+  
+    100% {
+      opacity:0;
+    }
+  }
+  .tutorial-container img:nth-of-type(1) {
+    animation-delay: 3s;
+  }
+  .tutorial-container img:nth-of-type(2) {
+    animation-delay: 5s;
+  }
+  .tutorial-container img:nth-of-type(3) {
+    animation-delay: 7s;
+  }
+  /* .tutorial-container img:nth-of-type(4) {
+    animation-delay: 4s;
+  }
+  .tutorial-container img:nth-of-type(5) {
+    animation-delay: 2s;
+  } */
+  
+  
+  .tutorial-container h1 {
+    color:rgb(184, 52, 28);
+    text-align: center;
+  }
+  
+  .tutorial-container h3 {
+    text-align: center;
+    color: #D9442A;
+
+    font-weight: bold;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+  }
+  
+  .tutorial-container p {
+    text-align: justify;
+   
+    margin: 35px;
+    margin-top: 25px;
+    margin-bottom: 40px;
+  }
+  
+  .tutorial-container .get-started-btn {
+    margin: auto;
+    margin-top: 10%;
+    cursor: pointer;
+    background-color: #D9442A;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 12px;
+    padding-top: 14px;
+    padding-bottom: 10px;
+    width: 100%;
+    /* max-width: 400px; */
+    border-radius: 7px;
+  
+    opacity: .8;
+    transition: all .5s;
+  }
+  .tutorial-container .get-started-btn a{
+    color: white;
+  }
+  .tutorial-container .get-started-btn:hover {
+    opacity: 1;
+  }
+  
+  @media only screen and (max-width: 750px) {
+    .tutorial-container {
+      width: 80%;
+      margin-top: 100px;
+    }
+  
+    .title {
+      font-size: 1.5em;
+    
+    }
+   
+  }
