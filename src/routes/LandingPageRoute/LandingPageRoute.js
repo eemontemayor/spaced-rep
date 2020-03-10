@@ -12,7 +12,10 @@ class LandingPageRoute extends Component {
   render() {
     return (
           <div className='tutorial-container'>
-            <div className='onboard-header'>
+        <div className='onboard-header'>
+        <button className='demo-btn'>
+          <Link to='/demo'>DEMO</Link>
+        </button>
               <h1 className='title'>
               REPS 
           
@@ -34,6 +37,7 @@ class LandingPageRoute extends Component {
 
             <Link to='/register'>GET STARTED</Link>
         </button>
+       
           </div>
     );
   }

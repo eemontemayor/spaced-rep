@@ -4,9 +4,7 @@ import Word from '../../components/Word/Word'
 import Button from "../../components/Button/Button";
 import { Label, Input } from "../../components/Form/Form";
 
-import Tooltip from '../../components/Tooltip/Tooltip'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 
 export default class DemoRoute extends React.Component {
@@ -236,7 +234,7 @@ export default class DemoRoute extends React.Component {
               required
                         />
                         <Button className="guess-submit-btn" type='submit' >
-                        {this.state.counter < 5 ? 'Submit your answer': <NavLink to='/landing'>DONE</NavLink> }  
+                        {this.state.counter < 5 ? 'Submit your answer': <Link to='/landing'>DONE</Link> }  
               {/* Submit your answer */}
             </Button>
                         

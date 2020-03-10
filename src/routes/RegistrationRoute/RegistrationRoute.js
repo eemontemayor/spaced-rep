@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import {Link} from 'react-router-dom';
 import RegistrationForm from '../../components/RegistrationForm/RegistrationForm'
 import './RegistrationRoute.css'
 class RegistrationRoute extends Component {
@@ -23,6 +24,9 @@ class RegistrationRoute extends Component {
         <RegistrationForm
           onRegistrationSuccess={this.handleRegistrationSuccess}
         />
+        <button className='demo-btn'>
+          <Link to='/demo'>DEMO</Link>
+        </button>
       </section>
     );
   }
