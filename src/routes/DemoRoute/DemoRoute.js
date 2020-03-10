@@ -6,6 +6,7 @@ import { Label, Input } from "../../components/Form/Form";
 
 import Tooltip from '../../components/Tooltip/Tooltip'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { NavLink } from "react-router-dom";
 
 
 export default class DemoRoute extends React.Component {
@@ -115,59 +116,99 @@ export default class DemoRoute extends React.Component {
           answer: null
         });
       };
-      handleSubmit = e => {
-          e.preventDefault();
-          let wordList = this.state.words
-          let headWord = this.state.headWord
-          let counter = this.state.counter
-          const guess = this.state.guess_input.toLowerCase();
-     console.log(wordList)
-          if (headWord === guess && counter===0) {
-              
-              alert('When you guess the word correctly, the word will be inserted further down the list')
+    handleSubmit = e => {
+        e.preventDefault();
+        let wordList = this.state.words
+        let headWord = this.state.headWord
+        let counter = this.state.counter
+        const guess = this.state.guess_input.toLowerCase();
+        console.log(wordList)
+        if (headWord === guess && counter< 3) {
+            if (counter === 0) {
+                alert('When you guess the word correctly, the word will be inserted further down the list')
      
-          }
-          if (headWord === guess && counter === 1) {
-              alert('Your progress is saved on the back end, using a Linked List')
-            
-          }
-          if (headWord === guess && counter === 2) {
-              alert('Almost Done')
-  
-           }
-          if (headWord === guess && counter === 3) {
-            alert('The more consecutive correct guesses for a given word will push that word even further down so you will see it less often')
-          
-       
-          }
-          if (headWord !== guess && counter === 3) {
-            alert('But beware: if you answer a word incorrectly, you will see the word again soon')
-          
-       
-          }
-          let oldHeadWord = wordList.shift()
-  
-          oldHeadWord.correct_count += 1
-          let index = oldHeadWord.correct_count * 2
-          wordList.splice(index,0,oldHeadWord)
-          console.log(wordList) 
-          this.setState({
-              words: wordList,
-              counter:this.state.counter + 1
-              
-          }, () => {
-            for (const [key, value] of Object.entries(wordList[0])) {
-                this.setState({
-                    [key]: value
-                });
             }
-          })
-      };
-    render() {
+            if (counter === 1) {
+                alert('Your progress is saved on the back end, using a Linked List')
+            
+            }
+            if (counter === 2) {
+                alert('Almost Done')
+  
+            }
+            let oldHeadWord = wordList.shift()
+        
+            oldHeadWord.correct_count += 1
+            let index = oldHeadWord.correct_count * 2
+            wordList.splice(index, 0, oldHeadWord)
+            console.log(wordList)
+            this.setState({
+                words: wordList,
+                counter: this.state.counter + 1
+            
+            }, () => {
+                for (const [key, value] of Object.entries(wordList[0])) {
+                    this.setState({
+                        [key]: value
+                    });
+                }
+            })
+        }
+    
+    if (headWord === guess  && counter === 3) {
+        alert('The more consecutive correct guesses for a given word will push that word even further down so you will see it less often')
+        let oldHeadWord = wordList.shift()
+        
+        oldHeadWord.correct_count += 1
+        let index = oldHeadWord.correct_count * 2
+        wordList.splice(index, 0, oldHeadWord)
+        console.log(wordList)
+        this.setState({
+            words: wordList,
+            counter: this.state.counter + 1
+            
+        }, () => {
+            this.setState({
+                original: wordList[0].original,
+                translation: 'malarkey',
+                incorrect_count: wordList[0].incorrect_count,
+                correct_count:wordList[0].correct_count,
+        })
+           
+            }
+        )
+    }
+   
+    
+    if (counter === 4) {
+              alert('But beware: if you answer a word incorrectly, you will see the word again soon')
+            
+              let oldHeadWord = wordList.shift()
+        
+              oldHeadWord.incorrect_count += 1
+              let index = 1
+              wordList.splice(index, 0, oldHeadWord)
+              console.log(wordList)
+              this.setState({
+                  words: wordList,
+                  counter: this.state.counter + 1
+                  
+              }, () => {
+                for (const [key, value] of Object.entries(wordList[0])) {
+                    this.setState({
+                        [key]: value
+                    });
+                }
+                  }
+              )
+            }
+    };
+    
+        render() {
         let wordList = this.generateDemoList(this.state.words)
         let headWord = this.state.original
         let translation = this.state.translation
-        let counter = this.state.counter
+     
         // console.log(this.state.headWord)
         return (
             <div className='DemoPage'>
@@ -189,14 +230,14 @@ export default class DemoRoute extends React.Component {
                             type="text"
                             id="learn-guess-input"
                             name="guess_input"
-                            value={counter !== 4 ? translation : 'malarkey'}
+                            value={translation }
                             disabled
               onChange={this.handleChange.bind(this)}
               required
                         />
                         <Button className="guess-submit-btn" type='submit' >
-                       
-              Submit your answer
+                        {this.state.counter < 5 ? 'Submit your answer': <NavLink to='/landing'>DONE</NavLink> }  
+              {/* Submit your answer */}
             </Button>
                         
           </form>
