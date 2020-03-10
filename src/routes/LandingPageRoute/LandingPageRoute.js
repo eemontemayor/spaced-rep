@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import {Link} from 'react-router-dom';
-import dog from '../../images/dog.png'
-import cat from '../../images/cat.png'
+
 import please from '../../images/please.png'
 import offer from '../../images/offer.png'
 import job from '../../images/job.png'

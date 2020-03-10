@@ -14,7 +14,7 @@ import './App.css'
 import LangContext from "../../contexts/LangContext";
 import LangService from "../../services/lang-service";
 import LandingPageRoute from '../../routes/LandingPageRoute/LandingPageRoute'
-
+import DemoRoute from '../../routes/DemoRoute/DemoRoute'
 export default class App extends Component {
   state = { hasError: false }
 
@@ -112,6 +112,10 @@ export default class App extends Component {
             <PublicOnlyRoute
               path={'/login'}
               component={LoginRoute}
+              />
+               <PublicOnlyRoute
+              path={'/demo'}
+              component={DemoRoute}
             />
             <Route
               component={NotFoundRoute}
