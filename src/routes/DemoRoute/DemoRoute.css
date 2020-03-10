@@ -79,6 +79,22 @@ h3.list-msg{
 .guess-submit-btn:hover{
 cursor:pointer;
 }
+.done-btn a{color: white;}
+.done-btn{
+    position:absolute;
+    bottom:20px;
+    right:20px;
+    color:white;
+    width:100px;
+
+    height:100px;
+    font-size: .9rem;
+    background-color:rgb(233, 31, 31) ;
+    border-radius: 8px;
+}
+.done-btn:hover{
+    cursor:pointer;
+}
 @media only screen and (max-width: 375px) {
     
 .ListContainer{

@@ -15,7 +15,7 @@ export default class DemoRoute extends React.Component {
         translation: '',
         counter: 0,
       };
-  GuessInput = React.createRef();
+  GuessSubmitBtn = React.createRef();
     
 
     componentDidMount() {
@@ -77,7 +77,7 @@ export default class DemoRoute extends React.Component {
                 });
             }
         })
-        this.GuessInput.current.focus();
+        // this.GuessSubmitBtn.current.focus();
     }
 
     generateDemoList = words => {
@@ -233,10 +233,10 @@ export default class DemoRoute extends React.Component {
               onChange={this.handleChange.bind(this)}
               required
                         />
-                        <Button className="guess-submit-btn" type='submit' >
-                        {this.state.counter < 5 ? 'Submit your answer': <Link to='/landing'>DONE</Link> }  
-              {/* Submit your answer */}
-            </Button>
+                {this.state.counter < 5 ? <Button ref={this.GuessSubmitBtn}className="guess-submit-btn" type='submit' >
+              Click Here
+            </Button>: <Button className='done-btn'><Link to='/register'>DONE</Link></Button> }  
+                        
                         
           </form>
                 </div>
