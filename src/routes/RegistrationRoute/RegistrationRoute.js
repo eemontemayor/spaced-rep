@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import {Link} from 'react-router-dom';
+import {Link, NavLink} from 'react-router-dom';
 import RegistrationForm from '../../components/RegistrationForm/RegistrationForm'
 import './RegistrationRoute.css'
+import Button from '../../components/Button/Button'
 class RegistrationRoute extends Component {
   static defaultProps = {
     history: {
@@ -24,9 +25,9 @@ class RegistrationRoute extends Component {
         <RegistrationForm
           onRegistrationSuccess={this.handleRegistrationSuccess}
         />
-        <button className='demo-btn'>
+        <Button className='demo-btn'type='click'>
           <Link to='/demo'>DEMO</Link>
-        </button>
+        </Button>
       </section>
     );
   }

@@ -113,7 +113,8 @@ export default class App extends Component {
               path={'/login'}
               component={LoginRoute}
               />
-               <PublicOnlyRoute
+              <PublicOnlyRoute
+                exact
               path={'/demo'}
               component={DemoRoute}
             />

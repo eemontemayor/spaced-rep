@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import {Link} from 'react-router-dom';
-
+import {NavLink, Link} from 'react-router-dom';
+import Button from '../../components/Button/Button'
 import please from '../../images/please.png'
 import offer from '../../images/offer.png'
 import job from '../../images/job.png'
@@ -12,10 +12,8 @@ class LandingPageRoute extends Component {
   render() {
     return (
           <div className='tutorial-container'>
+      
         <div className='onboard-header'>
-        <button className='demo-btn'>
-          <Link to='/demo'>DEMO</Link>
-        </button>
               <h1 className='title'>
               REPS 
           
@@ -33,11 +31,13 @@ class LandingPageRoute extends Component {
               REPS is a language learning app that will help you learn Spanish using a spaced repetition alogrithm.  
           The more consecutive times you guess the correct translations for a given word the less often you will see said word.
             </p>
-        <button className='get-started-btn'>
+        <Button className='get-started-btn'>
 
             <Link to='/register'>GET STARTED</Link>
-        </button>
-       
+        </Button>
+        <Button className='demo-btn'>
+          <Link to='/demo'>DEMO</Link>
+        </Button>
           </div>
     );
   }
