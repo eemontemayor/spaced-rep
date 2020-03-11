@@ -235,7 +235,13 @@ export default class DemoRoute extends React.Component {
                         />
                 {this.state.counter < 5 ? <Button ref={this.GuessSubmitBtn}className="guess-submit-btn" type='submit' >
               Click Here
-            </Button>: <Button className='done-btn'><Link to='/register'>DONE</Link></Button> }  
+            </Button> :
+                    <Link to='/register'>
+                  <Button className='done-btn'>
+                    DONE
+                  </Button>
+                    </Link>
+                }  
                         
                         
           </form>
