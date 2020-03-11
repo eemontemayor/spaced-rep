@@ -25,9 +25,11 @@ class RegistrationRoute extends Component {
         <RegistrationForm
           onRegistrationSuccess={this.handleRegistrationSuccess}
         />
+          <Link to='/demo'>
         <Button className='demo-btn'type='click'>
-          <Link to='/demo'>DEMO</Link>
+            DEMO
         </Button>
+            </Link>
       </section>
     );
   }

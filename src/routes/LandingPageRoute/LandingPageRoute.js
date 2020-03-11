@@ -35,9 +35,11 @@ class LandingPageRoute extends Component {
 
             <Link to='/register'>GET STARTED</Link>
         </Button>
+          <Link to='/demo'>
         <Button className='demo-btn'>
-          <Link to='/demo'>DEMO</Link>
+            DEMO
         </Button>
+            </Link>
           </div>
     );
   }
